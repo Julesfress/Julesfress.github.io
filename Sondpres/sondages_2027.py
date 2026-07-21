@@ -9,12 +9,14 @@ Le graphique reflète donc toujours l'état courant de la page. Si de nouvelles
 lignes (nouveaux sondages) y sont ajoutées, il suffit de relancer le script
 (ou d'utiliser --watch) pour que le graphique se mette à jour automatiquement.
 
-Le lissage se fait sondage par sondage (pas jour par jour) : chaque point de
-la courbe est la moyenne des N derniers sondages du candidat, pondérée
-linéairement du plus récent (poids le plus fort) au plus ancien. Cela évite
-qu'une fenêtre calée sur le calendrier ne sur- ou sous-pondère un candidat
-selon la fréquence, très irrégulière, à laquelle il est inclus dans les
-sondages.
+Le lissage se fait en distance de sondage (pas en distance calendaire) :
+chaque sondage d'un candidat est numéroté dans l'ordre (0, 1, 2, ...), et la
+courbe est une moyenne à noyau gaussien centrée sur ce rang, pas sur le jour.
+Deux sondages publiés à trois jours d'écart pèsent donc l'un sur l'autre
+autant que deux sondages publiés à trois semaines d'écart. La courbe reste
+néanmoins continue et sans à-coups (elle est évaluée sur une grille fine de
+jours, comme un lissage classique), car le noyau gaussien fait entrer et
+sortir chaque sondage progressivement plutôt que par à-coups.
 
 Candidats suivis : Le Pen, Mélenchon, Philippe, Attal, Glucksmann,
 Retailleau, Tondelier. Période : à partir du 1er janvier 2026.
@@ -50,7 +52,7 @@ PAGE_TITLE = "Liste de sondages sur l'élection présidentielle française de 20
 API_URL = "https://fr.wikipedia.org/w/api.php"
 USER_AGENT = "sondages-2027-chart/1.0 (script pédagogique)"
 START = date(2026, 1, 1)          # on ne garde que les sondages à partir de cette date
-POLL_WINDOW = 4                   # nombre de sondages agrégés dans la moyenne pondérée
+RANK_BANDWIDTH = 1.5               # écart-type du noyau de lissage, en RANGS de sondage (pas en jours)
 
 # Candidats retenus.  Chaque entrée : nom de colonne Wikipédia (préfixe du
 # nom de famille), couleur, marqueur.  La palette a été validée pour être
@@ -255,35 +257,34 @@ def extract_polls(html: str) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
-# 3. Lissage (moyenne mobile pondérée sur les N derniers sondages)
+# 3. Lissage (noyau gaussien en rang de sondage, pas en jours)
 # ---------------------------------------------------------------------------
-def weighted_poll_average(values, window: int = POLL_WINDOW):
-    """Moyenne mobile pondérée : à chaque sondage, moyenne des `window`
-    derniers sondages (lui compris), poids décroissant linéairement du plus
-    récent au plus ancien (pour window=4 : 40 %, 30 %, 20 %, 10 %).
+def poll_rank_smooth(dates_num, values, grid, bw: float = RANK_BANDWIDTH):
+    """Lissage à noyau gaussien où la distance utilisée est un RANG de
+    sondage (0, 1, 2, ... dans l'ordre chronologique du candidat), pas un
+    nombre de jours : deux sondages à trois jours d'écart pèsent l'un sur
+    l'autre exactement comme deux sondages à trois semaines d'écart.
 
-    Contrairement à un lissage temporel, l'unité de la fenêtre est « un
-    sondage », pas « un jour » : deux sondages publiés à trois jours
-    d'écart pèsent autant l'un que l'autre que deux sondages publiés à
-    trois semaines d'écart. En début de série, quand moins de `window`
-    sondages sont disponibles, les poids restants sont renormalisés pour
-    sommer à 1.
+    `grid` (mêmes unités que `dates_num`, typiquement une grille de jours)
+    est d'abord converti en un rang continu par interpolation linéaire entre
+    les rangs entiers des sondages voisins, ce qui permet d'évaluer une
+    courbe lisse jour par jour tout en gardant un poids basé sur le nombre
+    de sondages. Le noyau (contrairement à une fenêtre dure comme une
+    moyenne mobile) fait entrer/sortir chaque sondage progressivement : un
+    nouveau sondage ne peut donc pas faire sauter la courbe d'un coup, il la
+    déplace en douceur, proportionnellement à sa proximité de rang.
     """
     import numpy as np
+    dates_num = np.asarray(dates_num, float)
     values = np.asarray(values, float)
-    out = np.empty_like(values)
-    for i in range(len(values)):
-        k = min(window, i + 1)
-        w = np.arange(1, k + 1, dtype=float)          # le plus ancien du lot pèse le moins
-        out[i] = np.dot(w, values[i - k + 1:i + 1]) / w.sum()
+    grid = np.asarray(grid, float)
+    ranks = np.arange(len(dates_num), dtype=float)
+    grid_ranks = np.interp(grid, dates_num, ranks)
+    out = np.empty(grid.shape)
+    for i, r in enumerate(grid_ranks):
+        w = np.exp(-0.5 * ((r - ranks) / bw) ** 2)
+        out[i] = np.dot(w, values) / w.sum()
     return out
-
-
-def poll_window_weights_pct(window: int = POLL_WINDOW) -> str:
-    """Ex. « 40/30/20/10 % » pour window=4, du plus récent au plus ancien."""
-    w = list(range(window, 0, -1))
-    total = sum(w)
-    return "/".join(f"{100 * wi / total:.0f}" for wi in w) + " %"
 
 
 # ---------------------------------------------------------------------------
@@ -311,6 +312,7 @@ def make_chart(df: pd.DataFrame, revision: str, outfile: str, show: bool):
 
     xmin = num(START)
     xmax = df["date"].map(num).max()
+    grid = np.arange(xmin, xmax + 1)
 
     end_labels = []  # (y, couleur, texte) pour placement anti-collision
     for name, color, marker in CANDIDATES:
@@ -324,10 +326,14 @@ def make_chart(df: pd.DataFrame, revision: str, outfile: str, show: bool):
         ax.scatter(d, y, s=16, color=color, alpha=0.28, marker=marker,
                    linewidths=0, zorder=2)
 
-        # courbe lissée : moyenne pondérée des derniers sondages, un point
-        # par sondage (donc placée à sa vraie date, reliée en ligne brisée)
-        sm = weighted_poll_average(y)
-        ax.plot(d, sm, color=color, lw=2.2, zorder=3, solid_capstyle="round")
+        # courbe lissée, continue, restreinte à l'étendue des données du
+        # candidat : noyau gaussien en rang de sondage (cf. poll_rank_smooth)
+        gmask = (grid >= d.min()) & (grid <= d.max())
+        gg = grid[gmask]
+        if gg.size == 0:
+            continue
+        sm = poll_rank_smooth(d, y, gg)
+        ax.plot(gg, sm, color=color, lw=2.2, zorder=3, solid_capstyle="round")
         end_labels.append([sm[-1], color, marker, f"{name} {sm[-1]:.1f}"])
 
     # --- libellés directs à droite, sans chevauchement -----------------------
@@ -365,8 +371,8 @@ def make_chart(df: pd.DataFrame, revision: str, outfile: str, show: bool):
     ax.set_title("Présidentielle 2027 — intentions de vote au 1er tour",
                  fontsize=17, fontweight="bold", loc="left", color=INK, pad=16)
     ax.text(0, 1.015,
-            f"Courbes lissées (moyenne des {POLL_WINDOW} derniers sondages, poids "
-            f"{poll_window_weights_pct()}) · moyenne des hypothèses par sondage",
+            "Courbes lissées (noyau gaussien en rang de sondage, pas en jours) "
+            "· moyenne des hypothèses par sondage",
             transform=ax.transAxes, fontsize=9.5, color=INK_SECOND)
     ax.text(0, -0.115,
             "Données : Wikipédia, « Liste de sondages sur l'élection présidentielle "
