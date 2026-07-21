@@ -1,0 +1,5 @@
+{
+    "python.defaultInterpreterPath": "/home/julesfress/miniforge3/bin/python3",
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
+}
