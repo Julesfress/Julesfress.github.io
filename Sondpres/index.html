@@ -10,6 +10,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .polls-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      align-items: start;
+      margin: 36px auto;
+    }
+    .polls-grid .project-figure {
+      margin: 0;
+    }
+    .polls-side {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    @media (max-width: 820px) {
+      .polls-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body style="--tile-bg: var(--sky);">
   <header class="project-header wrap">
@@ -21,27 +43,25 @@
     <p class="tagline">Une moyenne glissante des intentions de vote au 1er tour, tirée des données Wikipédia.</p>
   </section>
 
-  <figure class="project-figure wrap">
-    <a class="frame" href="sondages_2027.png" target="_blank" rel="noopener">
-      <img src="sondages_2027.png" alt="Moyenne glissante des intentions de vote pour la présidentielle 2027" loading="lazy">
-    </a>
-  </figure>
-
-  <section class="project-body wrap">
-    <p>Pour comparer : les mêmes courbes pour 2022 et 2017, limitées aux cinq candidats arrivés en tête, et qui se terminent sur le résultat réel du 1er tour (entouré) plutôt que sur une estimation.</p>
-  </section>
-
-  <figure class="project-figure wrap">
-    <a class="frame" href="sondages_2022.png" target="_blank" rel="noopener">
-      <img src="sondages_2022.png" alt="Moyenne glissante des intentions de vote pour la présidentielle 2022, jusqu'au résultat réel du 1er tour" loading="lazy">
-    </a>
-  </figure>
-
-  <figure class="project-figure wrap">
-    <a class="frame" href="sondages_2017.png" target="_blank" rel="noopener">
-      <img src="sondages_2017.png" alt="Moyenne glissante des intentions de vote pour la présidentielle 2017, jusqu'au résultat réel du 1er tour" loading="lazy">
-    </a>
-  </figure>
+  <div class="polls-grid wrap">
+    <figure class="project-figure">
+      <a class="frame" href="sondages_2027.png" target="_blank" rel="noopener">
+        <img src="sondages_2027.png" alt="Sondages présidentielle 2027" loading="lazy">
+      </a>
+    </figure>
+    <div class="polls-side">
+      <figure class="project-figure">
+        <a class="frame" href="sondages_2022.png" target="_blank" rel="noopener">
+          <img src="sondages_2022.png" alt="Sondages présidentielle 2022" loading="lazy">
+        </a>
+      </figure>
+      <figure class="project-figure">
+        <a class="frame" href="sondages_2017.png" target="_blank" rel="noopener">
+          <img src="sondages_2017.png" alt="Sondages présidentielle 2017" loading="lazy">
+        </a>
+      </figure>
+    </div>
+  </div>
 
 </body>
 </html>

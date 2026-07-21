@@ -58,7 +58,7 @@ import lxml.html as LH
 # ---------------------------------------------------------------------------
 API_URL = "https://fr.wikipedia.org/w/api.php"
 USER_AGENT = "sondages-2027-chart/1.0 (script pédagogique)"
-RANK_BANDWIDTH = 1.5   # écart-type du noyau de lissage, en RANGS de sondage (pas en jours)
+RANK_BANDWIDTH = 2.2   # écart-type du noyau de lissage, en RANGS de sondage (pas en jours)
 
 # Couleur + marqueur par PARTI (pas par candidat) : un même parti garde le
 # même code visuel d'une élection à l'autre — ex. Macron 2017/2022 et Attal
@@ -559,14 +559,7 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
 
     ax.set_title(f"Présidentielle {config.year} — intentions de vote au 1er tour",
                  fontsize=17, fontweight="bold", loc="left", color=INK, pad=16)
-    subtitle = ("Courbes lissées (noyau gaussien en rang de sondage, pas en jours) "
-                "· moyenne des hypothèses par sondage")
-    if has_result:
-        subtitle += " · le point final (cerclé) est le résultat réel du 1er tour"
-    ax.text(0, 1.015, subtitle, transform=ax.transAxes, fontsize=9.5, color=INK_SECOND)
-    ax.text(0, -0.115,
-            f"Données : Wikipédia, « {config.page_title} ».",
-            transform=ax.transAxes, fontsize=8, color=MUTED)
+    ax.text(0, -0.115, "Wikipédia", transform=ax.transAxes, fontsize=8, color=MUTED)
 
     fig.savefig(outfile, dpi=150, facecolor=SURFACE)
     print(f"✓ Graphique écrit : {outfile}  ({len(df)} points, "
