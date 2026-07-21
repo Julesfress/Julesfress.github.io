@@ -3,42 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jules — Projets</title>
-  <meta name="description" content="Une collection de projets divers : data, code et petites expérimentations.">
+  <title>Jules</title>
+  <meta name="description" content="Des projets sans thème, faits parce que j'avais rien de mieux à faire.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="#top">Jules</a>
+      <a class="brand" href="#top">Jules ✌️</a>
       <nav>
-        <a href="#projets">Projets</a>
-        <a href="https://github.com/Julesfress" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/Julesfress" target="_blank" rel="noopener">GitHub ↗</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero wrap" id="top">
-      <h1>Bienvenue</h1>
-      <p>Ici je poste mes projets, sans thème fixe : data, code, petites expérimentations. Chaque carte ci-dessous en présente un.</p>
+      <span class="badge">🚧 chantier permanent</span>
+      <h1>Salut, moi c'est Jules.</h1>
+      <p>Des projets sans thème, faits parce que j'avais rien de mieux à faire un soir de semaine.</p>
     </section>
 
     <section class="projects wrap" id="projets">
-      <h2>Projets</h2>
       <div class="grid">
 
-        <article class="card">
-          <a class="card-media" href="Sondpres/sondages_2027.png" target="_blank" rel="noopener">
-            <img src="Sondpres/sondages_2027.png" alt="Moyenne glissante des intentions de vote pour la présidentielle 2027" loading="lazy">
-          </a>
-          <div class="card-body">
-            <span class="tag">Data · Python</span>
-            <h3>Sondages présidentielle 2027</h3>
-            <p>Moyenne glissante des intentions de vote au 1er tour, calculée à partir des sondages listés sur Wikipédia, mise à jour à chaque exécution du script.</p>
-            <a class="card-link" href="Sondpres/sondages_2027.png" target="_blank" rel="noopener">Voir le graphique →</a>
-          </div>
-        </article>
+        <a class="tile" style="--tile-bg: var(--sky); --tile-rot: -2deg;" href="Sondpres/">
+          <span class="tile-icon">📊</span>
+          <h3>Sondages présidentielle 2027</h3>
+          <p>Parce que rafraîchir Wikipédia à la main, ça va cinq minutes.</p>
+        </a>
+
+        <div class="tile tile--ghost" style="--tile-rot: 1.5deg;">
+          <span class="tile-icon">🔮</span>
+          <h3>Le prochain</h3>
+          <p>En cours de bricolage. Revenez plus tard.</p>
+        </div>
 
       </div>
     </section>
@@ -46,7 +49,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; 2026 Jules</p>
+      <p>Fait avec ☕ et un excès de soirs libres — 2026</p>
     </div>
   </footer>
 </body>
