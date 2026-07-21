@@ -3,13 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mon site</title>
+  <title>Jules — Projets</title>
+  <meta name="description" content="Une collection de projets divers : data, code et petites expérimentations.">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Bienvenue</h1>
-  <p>Ici je poste mes projets divers.</p> 
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">Jules</a>
+      <nav>
+        <a href="#projets">Projets</a>
+        <a href="https://github.com/Julesfress" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
 
-  <h2>Sondages présidentielle 2027 — moyenne glissante</h2>
-  <img src="Sondpres/sondages_2027.png" alt="Moyenne glissante des sondages 2027" style="max-width:100%">
+  <main>
+    <section class="hero wrap" id="top">
+      <h1>Bienvenue</h1>
+      <p>Ici je poste mes projets, sans thème fixe : data, code, petites expérimentations. Chaque carte ci-dessous en présente un.</p>
+    </section>
+
+    <section class="projects wrap" id="projets">
+      <h2>Projets</h2>
+      <div class="grid">
+
+        <article class="card">
+          <a class="card-media" href="Sondpres/sondages_2027.png" target="_blank" rel="noopener">
+            <img src="Sondpres/sondages_2027.png" alt="Moyenne glissante des intentions de vote pour la présidentielle 2027" loading="lazy">
+          </a>
+          <div class="card-body">
+            <span class="tag">Data · Python</span>
+            <h3>Sondages présidentielle 2027</h3>
+            <p>Moyenne glissante des intentions de vote au 1er tour, calculée à partir des sondages listés sur Wikipédia, mise à jour à chaque exécution du script.</p>
+            <a class="card-link" href="Sondpres/sondages_2027.png" target="_blank" rel="noopener">Voir le graphique →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 Jules</p>
+    </div>
+  </footer>
 </body>
 </html>
