@@ -11,6 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
   <style>
+    .page-wrap {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
     .polls-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -34,16 +39,16 @@
   </style>
 </head>
 <body style="--tile-bg: var(--sky);">
-  <header class="project-header wrap">
+  <header class="project-header page-wrap">
     <a class="back-link" href="../index.html">← Retour</a>
   </header>
 
-  <section class="project-hero wrap">
+  <section class="project-hero page-wrap">
     <h1>Sondages présidentielle 2027</h1>
     <p class="tagline">Une moyenne glissante des intentions de vote au 1er tour, tirée des données Wikipédia.</p>
   </section>
 
-  <div class="polls-grid wrap">
+  <div class="polls-grid page-wrap">
     <figure class="project-figure">
       <a class="frame" href="sondages_2027.png" target="_blank" rel="noopener">
         <img src="sondages_2027.png" alt="Sondages présidentielle 2027" loading="lazy">
