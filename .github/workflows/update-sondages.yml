@@ -1,0 +1,45 @@
+name: Mise à jour des sondages 2027
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # toutes les heures, à H+00
+  workflow_dispatch: {}    # déclenchement manuel depuis l'onglet Actions
+
+permissions:
+  contents: write
+
+# Évite que deux exécutions se chevauchent et se marchent dessus sur le push.
+concurrency:
+  group: update-sondages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install -r Sondpres/requirements.txt
+
+      - name: Régénérer le graphique depuis Wikipédia
+        run: python sondages_2027.py
+        working-directory: Sondpres
+
+      - name: Committer et pousser si le graphique a changé
+        run: |
+          if git diff --quiet -- Sondpres/sondages_2027.png; then
+            echo "Aucun nouveau sondage, rien à committer."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Sondpres/sondages_2027.png
+          git commit -m "Mise à jour automatique des sondages 2027"
+          git push
