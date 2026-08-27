@@ -15,14 +15,16 @@ Trois élections sont suivies :
 Un même parti garde la même couleur/le même marqueur d'une élection à
 l'autre (ex. Macron 2017/2022 et Attal 2027 partagent la couleur « RE »).
 
-Le lissage se fait en distance de sondage (pas en distance calendaire) :
-chaque sondage d'un candidat est numéroté dans l'ordre (0, 1, 2, ...), et la
-courbe est une moyenne à noyau gaussien centrée sur ce rang, pas sur le jour.
-Deux sondages publiés à trois jours d'écart pèsent donc l'un sur l'autre
-autant que deux sondages publiés à trois semaines d'écart. La courbe reste
-néanmoins continue et sans à-coups (elle est évaluée sur une grille fine de
-jours, comme un lissage classique), car le noyau gaussien fait entrer et
-sortir chaque sondage progressivement plutôt que par à-coups.
+Le lissage est une moyenne à noyau gaussien en jours, dont la largeur de
+fenêtre n'est pas fixe mais pilotée par le NOMBRE de sondages disponibles :
+elle s'ajuste en continu pour couvrir toujours à peu près le même nombre de
+sondages (voir `local_bandwidth`). Une période dense donne donc une courbe
+réactive, une période creuse une courbe prudente — sans qu'une salve de
+sondages publiés le même jour ne fasse décrocher la courbe à la verticale.
+Le noyau est de plus asymétrique : à chaque point de la courbe, les sondages
+postérieurs pèsent davantage que les sondages antérieurs, si bien que la
+courbe suit l'information la plus fraîche et que son extrémité droite reflète
+les derniers sondages plutôt qu'une moyenne en retard sur eux.
 
 Tous les graphiques démarrent en avril de l'année précédant l'élection.
 
@@ -49,6 +51,7 @@ from dataclasses import dataclass, field
 from datetime import date, datetime
 
 import matplotlib
+import numpy as np
 import pandas as pd
 import requests
 import lxml.html as LH
@@ -58,7 +61,21 @@ import lxml.html as LH
 # ---------------------------------------------------------------------------
 API_URL = "https://fr.wikipedia.org/w/api.php"
 USER_AGENT = "sondages-2027-chart/1.0 (script pédagogique)"
-RANK_BANDWIDTH = 2.2   # écart-type du noyau de lissage, en RANGS de sondage (pas en jours)
+# Réglages du lissage (cf. section 3). La fenêtre du noyau est exprimée en
+# jours, mais sa largeur est recalculée en chaque point pour englober à peu
+# près POLLS_PER_WINDOW sondages : c'est le nombre de sondages, et non le
+# calendrier, qui décide du degré de lissage.
+POLLS_PER_WINDOW = 6.0    # nombre de sondages visé dans une demi-fenêtre (~1 écart-type)
+BW_MIN_DAYS      = 6.0    # plancher : même en pleine avalanche de sondages, la courbe
+                          # ne devient pas verticale
+BW_MAX_DAYS      = 40.0   # plafond : dans un désert de sondages, on n'élargit pas à l'infini
+DENSITY_SPAN     = 21.0   # jours : échelle d'estimation de la densité de sondages
+RECENCY_SKEW     = 1.25   # >1 : à chaque point, les sondages postérieurs pèsent plus que
+                          # les antérieurs (rapport des écarts-types = SKEW²)
+EDGE_TRUST       = 8.0    # nombre effectif de sondages à partir duquel on croit à moitié
+                          # à la pente locale (correction de bord, cf. poll_smooth)
+EDGE_RIDGE       = 0.25   # amortit la pente locale quand les sondages de la fenêtre sont
+                          # trop resserrés dans le temps pour en estimer une (en unités de fenêtre)
 
 # Couleur + marqueur par PARTI (pas par candidat) : un même parti garde le
 # même code visuel d'une élection à l'autre — ex. Macron 2017/2022 et Attal
@@ -435,34 +452,96 @@ def extract_polls(html: str, config: ElectionConfig) -> tuple[pd.DataFrame, dict
 
 
 # ---------------------------------------------------------------------------
-# 3. Lissage (noyau gaussien en rang de sondage, pas en jours)
+# 3. Lissage : noyau gaussien en jours, fenêtre pilotée par le nombre de sondages
 # ---------------------------------------------------------------------------
-def poll_rank_smooth(dates_num, values, grid, bw: float = RANK_BANDWIDTH):
-    """Lissage à noyau gaussien où la distance utilisée est un RANG de
-    sondage (0, 1, 2, ... dans l'ordre chronologique du candidat), pas un
-    nombre de jours : deux sondages à trois jours d'écart pèsent l'un sur
-    l'autre exactement comme deux sondages à trois semaines d'écart.
+def poll_density(grid, dates_num, span: float = DENSITY_SPAN):
+    """Densité locale de sondages, en sondages par jour, au fil du calendrier.
 
-    `grid` (mêmes unités que `dates_num`, typiquement une grille de jours)
-    est d'abord converti en un rang continu par interpolation linéaire entre
-    les rangs entiers des sondages voisins, ce qui permet d'évaluer une
-    courbe lisse jour par jour tout en gardant un poids basé sur le nombre
-    de sondages. Le noyau (contrairement à une fenêtre dure comme une
-    moyenne mobile) fait entrer/sortir chaque sondage progressivement : un
-    nouveau sondage ne peut donc pas faire sauter la courbe d'un coup, il la
-    déplace en douceur, proportionnellement à sa proximité de rang.
+    Estimée par noyau gaussien large (`span`) : c'est une fonction lisse et
+    infiniment dérivable du temps, qui ne fait pas la différence entre six
+    sondages publiés le même jour et six sondages étalés sur la semaine. Ce
+    lissage-là est indispensable : c'est lui qui empêche une salve de
+    sondages simultanés de faire décrocher la courbe à la verticale.
     """
-    import numpy as np
+    z = (np.asarray(grid, float)[:, None] - np.asarray(dates_num, float)[None, :]) / span
+    return np.exp(-0.5 * z * z).sum(axis=1) / (span * np.sqrt(2 * np.pi))
+
+
+def local_bandwidth(grid, dates_num):
+    """Largeur du noyau (écart-type, en jours) en chaque point de `grid`.
+
+    C'est ici que « lisser en fonction du nombre de sondages » se joue : on
+    vise une fenêtre contenant POLLS_PER_WINDOW sondages, donc une largeur
+    ~ POLLS_PER_WINDOW / densité. Quand les sondages s'enchaînent, la fenêtre
+    se resserre et la courbe devient réactive ; quand ils se raréfient, elle
+    s'élargit et la courbe cesse de sur-réagir à un sondage isolé.
+
+    Plutôt qu'un `clip` entre plancher et plafond — qui introduirait un angle
+    à chaque fois qu'on touche une borne — la formule sature en douceur : elle
+    vaut BW_MAX_DAYS quand la densité est nulle, tend vers BW_MIN_DAYS quand
+    elle explose, et reste dérivable partout entre les deux.
+    """
+    amplitude = BW_MAX_DAYS - BW_MIN_DAYS
+    dens = poll_density(grid, dates_num)
+    return BW_MIN_DAYS + amplitude / (1.0 + amplitude * dens / POLLS_PER_WINDOW)
+
+
+def poll_smooth(dates_num, values, grid):
+    """Régression linéaire locale à noyau gaussien asymétrique, sur `grid`.
+
+    Trois ingrédients : le lissage, la fraîcheur, et le traitement des bords.
+
+    1. la largeur du noyau vient de `local_bandwidth` : elle suit le nombre
+       de sondages disponibles autour du point évalué, pas le calendrier ;
+    2. le noyau est dissymétrique autour de ce point — écart-type multiplié
+       par RECENCY_SKEW du côté du futur, divisé par RECENCY_SKEW du côté du
+       passé. À distance égale, un sondage plus récent pèse donc plus lourd
+       qu'un sondage plus ancien, et la courbe suit l'information fraîche
+       plutôt que de la diluer dans l'historique ;
+    3. la moyenne pondérée n'est pas prise telle quelle : on ajuste une
+       DROITE locale (moyenne + pente) et on lit sa valeur au point évalué.
+       Au milieu de la courbe cela ne change rien — la fenêtre y est
+       équilibrée, la correction `pente x décalage` est nulle. Aux deux bouts
+       en revanche, la fenêtre est amputée d'un côté : une moyenne nue y
+       serait tirée vers l'intérieur de la période (une courbe qui monte
+       démarrerait trop haut et finirait trop bas). La droite locale, elle,
+       prolonge la tendance jusqu'au bord, si bien que le dernier point de la
+       courbe — celui qui porte l'étiquette du candidat — reflète vraiment
+       les derniers sondages au lieu de rester en retard sur eux.
+       Cette correction n'est appliquée qu'à hauteur de ce que les données
+       permettent d'affirmer : quand la fenêtre ne contient qu'une poignée de
+       sondages, la pente qu'on y mesure est surtout du bruit, et l'extrapoler
+       jusqu'au bord ne ferait que l'amplifier. Elle est donc pondérée par le
+       nombre EFFECTIF de sondages de la fenêtre (cf. EDGE_TRUST) : pleine sur
+       une période richement sondée, effacée sur une période creuse, où la
+       courbe retombe alors sur la simple moyenne locale.
+
+    Le noyau étant gaussien de part et d'autre (dérivée nulle en son centre)
+    et la largeur variant continûment, la courbe obtenue est lisse : aucun
+    sondage n'entre ni ne sort de la moyenne par à-coups.
+    """
     dates_num = np.asarray(dates_num, float)
     values = np.asarray(values, float)
     grid = np.asarray(grid, float)
-    ranks = np.arange(len(dates_num), dtype=float)
-    grid_ranks = np.interp(grid, dates_num, ranks)
-    out = np.empty(grid.shape)
-    for i, r in enumerate(grid_ranks):
-        w = np.exp(-0.5 * ((r - ranks) / bw) ** 2)
-        out[i] = np.dot(w, values) / w.sum()
-    return out
+
+    h = local_bandwidth(grid, dates_num)
+    delta = dates_num[None, :] - grid[:, None]   # > 0 : sondage postérieur au point évalué
+    sigma = np.where(delta > 0.0, h[:, None] * RECENCY_SKEW, h[:, None] / RECENCY_SKEW)
+    w = np.exp(-0.5 * (delta / sigma) ** 2)
+
+    total = w.sum(axis=1)
+    mean_d = (w * delta).sum(axis=1) / total          # décalage moyen de la fenêtre, en jours
+    mean_v = (w * values).sum(axis=1) / total         # moyenne locale (avant correction de bord)
+    var_d = (w * delta * delta).sum(axis=1) / total - mean_d ** 2
+    cov_dv = (w * delta * values).sum(axis=1) / total - mean_d * mean_v
+    # le terme de ridge évite une pente aberrante là où tous les sondages de
+    # la fenêtre sont quasi simultanés (var_d ~ 0) : la pente y est ramenée
+    # vers zéro, donc l'estimation vers la simple moyenne locale.
+    slope = cov_dv / (var_d + (EDGE_RIDGE * h) ** 2)
+    # nombre effectif de sondages sous le noyau (n si tous pesaient pareil) :
+    # mesure de la quantité d'information dont la pente locale est tirée.
+    n_eff = total ** 2 / (w * w).sum(axis=1)
+    return mean_v - n_eff / (n_eff + EDGE_TRUST) * slope * mean_d
 
 
 # ---------------------------------------------------------------------------
@@ -470,7 +549,6 @@ def poll_rank_smooth(dates_num, values, grid, bw: float = RANK_BANDWIDTH):
 # ---------------------------------------------------------------------------
 def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
                revision: str, outfile: str, show: bool):
-    import numpy as np
     import matplotlib.pyplot as plt
     import matplotlib.dates as mdates
     import matplotlib.ticker as mticker
@@ -513,12 +591,12 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
                    linewidths=0, zorder=2)
 
         # courbe lissée, continue, restreinte à l'étendue des données du
-        # candidat : noyau gaussien en rang de sondage (cf. poll_rank_smooth)
+        # candidat : noyau gaussien à fenêtre adaptative (cf. poll_smooth)
         gmask = (grid >= d.min()) & (grid <= d.max())
         gg = grid[gmask]
         if gg.size == 0:
             continue
-        sm = poll_rank_smooth(d, y, gg)
+        sm = poll_smooth(d, y, gg)
         ax.plot(gg, sm, color=color, lw=2.2, zorder=3, solid_capstyle="round")
 
         final_v = final_results.get(name)
