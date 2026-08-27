@@ -91,7 +91,11 @@ class ElectionConfig:
     candidates: list[tuple[str, str, str]]   # (nom, couleur, marqueur)
     outfile: str
     aliases: dict[str, list[str]] = field(default_factory=dict)
-    election_date: date | None = None  # jour du 1er tour, si l'élection a déjà eu lieu
+    # Jour du 1er tour : la vraie date si l'élection a eu lieu (le graphique
+    # y affiche alors le résultat réel), sinon une date encore à venir pour
+    # que l'axe s'arrête au même point que les élections passées et reste
+    # comparable, même si les courbes, elles, s'arrêtent avant.
+    election_date: date | None = None
 
 
 CONFIGS: dict[int, ElectionConfig] = {
@@ -109,6 +113,7 @@ CONFIGS: dict[int, ElectionConfig] = {
         # indécise) : rattachée à Le Pen pour une courbe continue.
         aliases={"Le Pen": ["Le Pen", "Candidat RN"]},
         outfile="sondages_2027.png",
+        election_date=date(2027, 4, 18),  # pas encore officielle : juste pour caler l'axe
     ),
     2022: ElectionConfig(
         year=2022,
@@ -486,8 +491,13 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
 
     xmin = num(config.start)
     last_poll_x = df["date"].map(num).max()
-    has_result = bool(final_results) and config.election_date is not None
-    xmax = num(config.election_date) if has_result else last_poll_x
+    has_result = bool(final_results)
+    # l'axe peut s'étendre au-delà du dernier sondage (ex. jusqu'au jour du
+    # vote pour 2027, pas encore connu, juste pour rester comparable aux
+    # élections passées) ; le marqueur de fin, lui, reste au vrai dernier
+    # point connu tant qu'il n'y a pas de résultat réel à afficher.
+    axis_xmax = num(config.election_date) if config.election_date else last_poll_x
+    marker_x = axis_xmax if has_result else last_poll_x
     grid = np.arange(xmin, last_poll_x + 1)
 
     end_labels = []  # (y, couleur, marqueur, texte) pour placement anti-collision
@@ -516,9 +526,9 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
             # pont en pointillés entre le dernier sondage et le résultat réel,
             # marqué distinctement (cerclage foncé) pour qu'il ne soit jamais
             # confondu avec une simple estimation de sondage.
-            ax.plot([gg[-1], xmax], [sm[-1], final_v], color=color, lw=1.3,
+            ax.plot([gg[-1], marker_x], [sm[-1], final_v], color=color, lw=1.3,
                     ls=(0, (1, 1.6)), zorder=3)
-            ax.plot(xmax, final_v, marker=marker, color=color, ms=11,
+            ax.plot(marker_x, final_v, marker=marker, color=color, ms=11,
                     markeredgecolor=INK, markeredgewidth=1.1, zorder=4, clip_on=False)
             end_labels.append([final_v, color, marker, f"{name} {final_v:.1f}"])
         else:
@@ -530,7 +540,7 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
     for i in range(1, len(end_labels)):
         if end_labels[i][0] - end_labels[i - 1][0] < min_gap:
             end_labels[i][0] = end_labels[i - 1][0] + min_gap
-    x_lab = xmax + (xmax - xmin) * 0.02
+    x_lab = marker_x + (axis_xmax - xmin) * 0.02
     for yv, color, marker, txt in end_labels:
         ax.plot(x_lab, yv, marker=marker, color=color, ms=8, clip_on=False,
                 markeredgecolor=SURFACE, markeredgewidth=1.0, zorder=5)
@@ -540,7 +550,7 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
 
     # --- axes / habillage -----------------------------------------------------
     data_max = max(df["valeur"].max(), max(final_results.values(), default=0))
-    ax.set_xlim(xmin, xmax)
+    ax.set_xlim(xmin, axis_xmax)
     ax.set_ylim(0, max(40, data_max + 4))
     ax.xaxis.set_major_locator(mdates.MonthLocator())
 
