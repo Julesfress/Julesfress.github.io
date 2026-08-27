@@ -3,70 +3,120 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sondages présidentielle 2027 — Jules</title>
+  <title>Sondages présidentielle 2027 — Julesfress</title>
   <meta name="description" content="Moyenne glissante des sondages de la présidentielle 2027, lue en direct sur Wikipédia.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+  <meta name="theme-color" content="#f3f0e7">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2314130f'/><text x='50' y='73' font-family='Georgia,serif' font-size='64' fill='%23f3f0e7' text-anchor='middle'>J</text></svg>">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sondages présidentielle 2027">
+  <meta property="og:description" content="Une moyenne glissante des intentions de vote au 1er tour, tirée des données Wikipédia.">
+  <meta property="og:url" content="https://julesfress.github.io/Sondpres/">
+  <meta property="og:image" content="https://julesfress.github.io/Sondpres/sondages_2027.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <style>
-    .page-wrap {
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .polls-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-      align-items: start;
-      margin: 36px auto;
-    }
-    .polls-grid .project-figure {
-      margin: 0;
-    }
-    .polls-side {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    @media (max-width: 820px) {
-      .polls-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
-<body style="--tile-bg: var(--sky);">
-  <header class="project-header page-wrap">
-    <a class="back-link" href="../index.html">← Retour</a>
+<body>
+  <header class="masthead">
+    <div class="shell shell--wide masthead__inner">
+      <a class="wordmark" href="../">Julesfress<span class="wordmark__dot">.</span></a>
+      <nav class="back" aria-label="Navigation">
+        <a href="../"><span aria-hidden="true">←</span> Tous les projets</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="project-hero page-wrap">
-    <h1>Sondages présidentielle 2027</h1>
-    <p class="tagline">Une moyenne glissante des intentions de vote au 1er tour, tirée des données Wikipédia.</p>
-  </section>
+  <main id="contenu">
+    <article>
+      <header class="article__head">
+        <div class="shell shell--wide">
+          <p class="kicker">Projet 01 · Données</p>
+          <h1 class="article__title">Sondages présidentielle <em>2027</em></h1>
+          <p class="lede">Une moyenne glissante des intentions de vote au 1er tour, tirée des données Wikipédia.</p>
+          <ul class="meta">
+            <li>Source <b>Wikipédia</b></li>
+            <li>Python, pandas, matplotlib</li>
+            <li>Regénéré <b>toutes les heures</b></li>
+          </ul>
+        </div>
+      </header>
 
-  <div class="polls-grid page-wrap">
-    <figure class="project-figure">
-      <a class="frame" href="sondages_2027.png" target="_blank" rel="noopener">
-        <img src="sondages_2027.png" alt="Sondages présidentielle 2027" loading="lazy">
-      </a>
-    </figure>
-    <div class="polls-side">
-      <figure class="project-figure">
-        <a class="frame" href="sondages_2022.png" target="_blank" rel="noopener">
-          <img src="sondages_2022.png" alt="Sondages présidentielle 2022" loading="lazy">
-        </a>
-      </figure>
-      <figure class="project-figure">
-        <a class="frame" href="sondages_2017.png" target="_blank" rel="noopener">
-          <img src="sondages_2017.png" alt="Sondages présidentielle 2017" loading="lazy">
-        </a>
-      </figure>
+      <div class="shell shell--wide">
+        <figure class="figure">
+          <a class="figure__frame" href="sondages_2027.png" target="_blank" rel="noopener">
+            <img src="sondages_2027.png" alt="Courbes lissées des intentions de vote au premier tour de la présidentielle 2027" loading="eager" decoding="async">
+          </a>
+          <figcaption>Chaque point pâle est un sondage publié ; la courbe est leur moyenne lissée. Cliquer pour l'image en taille réelle.</figcaption>
+        </figure>
+      </div>
+
+      <section class="section">
+        <div class="shell shell--wide">
+          <div class="prose">
+            <h2>Comment c'est fabriqué</h2>
+            <p>Un script Python relit la page Wikipédia « Liste de sondages sur l'élection présidentielle française&nbsp;» à chaque exécution, ne garde que les tableaux du premier tour, et ramène chaque sondage à une valeur par candidat&nbsp;: la moyenne des hypothèses testées. Rien n'est saisi à la main, rien n'est mis en cache&nbsp;— si la page bouge, le graphique bouge.</p>
+
+            <h2>Le lissage</h2>
+            <p>La courbe n'est pas une moyenne mobile sur trente jours. Le noyau gaussien travaille en <strong>distance de rang de sondage</strong>, pas en distance calendaire&nbsp;: chaque sondage d'un candidat est numéroté dans l'ordre, et deux sondages publiés à trois jours d'écart pèsent l'un sur l'autre exactement autant que deux sondages publiés à trois semaines d'écart. Une période creuse ne dilue donc pas la courbe, et une salve de sondages ne l'écrase pas.</p>
+            <p>Elle reste malgré tout continue&nbsp;: elle est évaluée jour par jour, et le noyau fait entrer et sortir chaque sondage progressivement. Un nouveau sondage ne peut pas faire sauter la courbe d'un coup&nbsp;— il la déplace en douceur, à proportion de sa proximité.</p>
+
+            <h2>Les couleurs</h2>
+            <p>Elles appartiennent aux <em>partis</em>, pas aux candidats&nbsp;: Macron en 2017, Macron en 2022 et Attal en 2027 partagent le même bleu clair, Fillon, Pécresse et Retailleau le même violet. D'un graphique à l'autre, l'œil suit donc une famille politique et pas un nom. La palette est celle d'Okabe-Ito, lisible en cas de daltonisme.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell shell--wide">
+          <h2 class="section__title">Pour comparer — 2022 et 2017</h2>
+          <div class="figure-row figure-row--spaced">
+            <figure class="figure">
+              <a class="figure__frame" href="sondages_2022.png" target="_blank" rel="noopener">
+                <img src="sondages_2022.png" alt="Courbes lissées des intentions de vote au premier tour de la présidentielle 2022" loading="lazy" decoding="async">
+              </a>
+              <figcaption>2022. Les cinq candidats arrivés en tête. La courbe se termine sur le résultat réel du scrutin, relié en pointillés.</figcaption>
+            </figure>
+            <figure class="figure">
+              <a class="figure__frame" href="sondages_2017.png" target="_blank" rel="noopener">
+                <img src="sondages_2017.png" alt="Courbes lissées des intentions de vote au premier tour de la présidentielle 2017" loading="lazy" decoding="async">
+              </a>
+              <figcaption>2017. Même fenêtre&nbsp;: d'avril de l'année précédente au jour du premier tour, pour que les trois graphiques se lisent à la même échelle.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <div class="shell shell--wide">
+        <ul class="actions">
+          <li>
+            <a href="https://github.com/Julesfress/Julesfress.github.io/blob/main/Sondpres/sondages_2027.py" target="_blank" rel="noopener">
+              Le code <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27élection_présidentielle_française_de_2027" target="_blank" rel="noopener">
+              La page Wikipédia <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="colophon">
+    <div class="shell shell--wide">
+      <div class="colophon__rule"><i></i></div>
+      <div class="colophon__grid">
+        <p>Les chiffres viennent de Wikipédia, le lissage est le mien&nbsp;: une moyenne de sondages n'est pas une prédiction, et l'incertitude de chaque enquête n'est pas représentée ici.</p>
+        <ul class="colophon__links">
+          <li><a href="../">Tous les projets</a></li>
+          <li><a href="https://github.com/Julesfress" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-
+  </footer>
 </body>
 </html>

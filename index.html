@@ -3,44 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jules</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+  <title>Julesfress — projets divers et variés</title>
+  <meta name="description" content="Le carnet de projets de Jules : des choses codées le soir, en général pour répondre à une question que je me pose.">
+  <meta name="theme-color" content="#f3f0e7">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2314130f'/><text x='50' y='73' font-family='Georgia,serif' font-size='64' fill='%23f3f0e7' text-anchor='middle'>J</text></svg>">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Julesfress — projets divers et variés">
+  <meta property="og:description" content="Des choses codées le soir, en général pour répondre à une question que je me pose.">
+  <meta property="og:url" content="https://julesfress.github.io/">
+  <meta property="og:image" content="https://julesfress.github.io/Sondpres/sondages_2027.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href="#top">Julesfress</a>
-      <nav>
-        <a href="https://github.com/Julesfress" target="_blank" rel="noopener">GitHub ↗</a>
+  <header class="masthead">
+    <div class="shell masthead__inner">
+      <a class="wordmark" href="./">Julesfress<span class="wordmark__dot">.</span></a>
+      <nav class="nav" aria-label="Liens externes">
+        <a href="https://github.com/Julesfress" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero wrap" id="top">
-      <h1>Projets</h1>
+  <main id="contenu">
+    <section class="hero">
+      <div class="shell">
+        <p class="kicker">Carnet de bricolages</p>
+        <h1 class="hero__title">Projets divers <em>et&nbsp;variés</em></h1>
+        <p class="lede">Des choses que je code le soir, en général pour répondre à une question que je me pose. Quand ça tient debout, ça atterrit ici.</p>
+      </div>
     </section>
 
-    <section class="projects wrap" id="projets">
-      <div class="grid">
+    <section class="section" id="projets" aria-labelledby="titre-projets">
+      <div class="shell">
+        <h2 class="section__title" id="titre-projets">Les projets</h2>
 
-        <a class="tile" style="--tile-bg: var(--sky); --tile-rot: -2deg;" href="Sondpres/">
-          <h3>Sondages présidentielle 2027</h3>
-          <p>Parce que rafraîchir Wikipédia à la main, ça va cinq minutes.</p>
-        </a>
+        <ol class="index">
+          <li class="entry">
+            <a class="entry__link" href="Sondpres/">
+              <div class="entry__num">01</div>
+              <div>
+                <h3 class="entry__title">Sondages présidentielle 2027</h3>
+                <p class="entry__desc">Parce que rafraîchir Wikipédia à la main, ça va cinq minutes.</p>
+                <ul class="tags">
+                  <li>Python</li>
+                  <li>Wikipédia</li>
+                  <li>Mis à jour chaque heure</li>
+                </ul>
+              </div>
+              <div class="entry__thumb">
+                <img src="Sondpres/sondages_2027.png" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="entry__go" aria-hidden="true">→</div>
+            </a>
+          </li>
 
-        <div class="tile tile--ghost" style="--tile-rot: 1.5deg;">
-          <span class="tile-icon">🔮</span>
-          <h3>Le prochain</h3>
-          <p>En cours de bricolage. Revenez plus tard.</p>
-        </div>
-
+          <li class="entry entry--soon">
+            <div class="entry__link">
+              <div class="entry__num">02</div>
+              <div>
+                <h3 class="entry__title">Le prochain</h3>
+                <p class="entry__desc">En cours de bricolage. Revenez plus tard.</p>
+                <ul class="tags">
+                  <li>À venir</li>
+                </ul>
+              </div>
+              <div class="entry__thumb"></div>
+              <div class="entry__go" aria-hidden="true">·</div>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
   </main>
+
+  <footer class="colophon">
+    <div class="shell">
+      <div class="colophon__rule"><i></i></div>
+      <div class="colophon__grid">
+        <p>Écrit à la main, en HTML et CSS, sans framework ni traceur. Hébergé sur GitHub&nbsp;Pages. Le graphique des sondages se régénère tout seul toutes les heures.</p>
+        <ul class="colophon__links">
+          <li><a href="https://github.com/Julesfress" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://github.com/Julesfress/Julesfress.github.io" target="_blank" rel="noopener">Code du site</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
