@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La carte des députés — Jules</title>
+  <meta name="description" content="Les députés de l'Assemblée nationale placés par leurs votes réels : deux députés sont proches s'ils ont voté de la même façon.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗳️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="shell shell--wide">
+      <a class="mark" href="../">Julesfress</a>
+      <nav>
+        <a href="../">← Retour</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell shell--wide">
+    <div class="doc-head">
+      <h1>La carte des députés</h1>
+      <p class="tagline">Les députés placés par leurs votes, et non par leur étiquette : deux députés sont proches s'ils ont voté de la même façon.</p>
+    </div>
+
+    <div class="stack">
+      <a class="plate" href="hemicycle_carte.png" target="_blank" rel="noopener">
+        <img src="hemicycle_carte.png" alt="Carte des députés de l'Assemblée nationale d'après leurs votes : les groupes de gauche à gauche de l'image, le socle gouvernemental en bas, le Rassemblement National en haut à droite.">
+      </a>
+
+      <div class="note">
+        <h2>Comment c'est calculé</h2>
+        <p>Chaque scrutin public est une question posée à l'Assemblée. Pour chaque paire de
+        députés, on mesure leur accord moyen sur les scrutins qu'ils ont votés
+        <em>tous les deux</em> — pour vaut +1, contre −1, abstention 0. Les absences ne sont
+        jamais comblées, elles sont ignorées : la participation médiane tourne autour de
+        130 votants sur 577, et faire voter des absents à la moyenne de leur camp reviendrait
+        à dessiner une carte à partir de votes qui n'ont pas eu lieu. Les députés sont ensuite
+        placés de façon que les distances à l'écran reflètent au mieux ces accords deux à deux.</p>
+
+        <h2>Ce que les deux axes disent</h2>
+        <p>Les axes ne sont pas choisis à l'avance : ils tombent du calcul. Le premier
+        reconstitue le clivage gauche-droite sans qu'on le lui ait demandé. Le second sépare
+        les oppositions du socle gouvernemental — il range donc les deux extrémités du premier
+        axe du même côté, ce que l'étiquette de groupe, seule, ne laisse pas voir. C'est le
+        « fer à cheval » que forme le nuage.</p>
+        <p>La taille de l'ellipse est la cohésion du groupe. Serrée, le groupe vote d'un bloc ;
+        étalée, c'est que ses membres ne votent pas ensemble — le cas des non-inscrits, qui ne
+        sont pas un groupe, et de LIOT, qui en est un sans en avoir la discipline.</p>
+
+        <h2>Les groupes</h2>
+        <dl class="keys">
+          <div><dt>LFI-NFP</dt><dd>La France insoumise – Nouveau Front Populaire</dd></div>
+          <div><dt>ECOS</dt><dd>Écologiste et Social</dd></div>
+          <div><dt>GDR</dt><dd>Gauche Démocrate et Républicaine</dd></div>
+          <div><dt>SOC</dt><dd>Socialistes et apparentés</dd></div>
+          <div><dt>LIOT</dt><dd>Libertés, Indépendants, Outre-mer et Territoires</dd></div>
+          <div><dt>DEM</dt><dd>Les Démocrates</dd></div>
+          <div><dt>EPR</dt><dd>Ensemble pour la République</dd></div>
+          <div><dt>HOR</dt><dd>Horizons &amp; Indépendants</dd></div>
+          <div><dt>DR</dt><dd>Droite Républicaine</dd></div>
+          <div><dt>RN</dt><dd>Rassemblement National</dd></div>
+          <div><dt>UDDPLR</dt><dd>Union des droites pour la République</dd></div>
+          <div><dt>NI</dt><dd>Non inscrits</dd></div>
+        </dl>
+      </div>
+
+      <a class="plate" href="hemicycle_groupes.png" target="_blank" rel="noopener">
+        <img src="hemicycle_groupes.png" alt="La même carte répétée douze fois, une par groupe politique, chaque panneau mettant en couleur les députés du groupe sur le fond gris de toute l'Assemblée." loading="lazy">
+      </a>
+
+      <p class="note">Source : <a href="https://data.assemblee-nationale.fr/travaux-parlementaires/votes" target="_blank" rel="noopener">données ouvertes de l'Assemblée nationale</a>,
+      scrutins publics de la 17<sup>e</sup> législature, régénérés chaque jour.
+      Le code tient dans un fichier : <a href="https://github.com/Julesfress/Julesfress.github.io/blob/main/Hemicycle/hemicycle.py" target="_blank" rel="noopener">hemicycle.py</a>.</p>
+    </div>
+  </main>
+</body>
+</html>

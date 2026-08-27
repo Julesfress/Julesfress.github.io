@@ -227,6 +227,70 @@ a.row:hover .go {
   height: auto;
 }
 
+/* Page projet à plusieurs graphiques : les planches s'empilent et le texte
+   d'explication s'intercale entre elles. */
+.stack {
+  display: grid;
+  gap: clamp(20px, 2.4vw, 34px);
+  padding-bottom: clamp(56px, 9vw, 120px);
+}
+
+.note {
+  max-width: 68ch;
+  margin: clamp(10px, 1.6vw, 22px) 0;
+  color: var(--ink-2);
+}
+
+.note h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.note h2:not(:first-child) {
+  margin-top: 26px;
+}
+
+.note p {
+  margin: 0 0 16px;
+}
+
+.note p:last-child {
+  margin-bottom: 0;
+}
+
+/* Légende des sigles : les graphiques n'affichent que l'abréviation du
+   groupe, faute de place — les intitulés complets vivent donc ici. */
+.keys {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0 32px;
+  font-size: 0.95rem;
+}
+
+.keys > div {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid var(--rule);
+  padding: 7px 0;
+}
+
+.keys dt {
+  min-width: 5.4rem;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.keys dd {
+  margin: 0;
+}
+
 /* --- Écrans étroits ----------------------------------------------------- */
 
 @media (max-width: 820px) {

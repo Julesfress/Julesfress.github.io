@@ -1,0 +1,45 @@
+name: Mise à jour de la carte des députés
+
+on:
+  schedule:
+    - cron: "30 5 * * *"   # tous les jours, l'export de l'Assemblée étant reconstruit la nuit
+  workflow_dispatch: {}    # déclenchement manuel depuis l'onglet Actions
+
+permissions:
+  contents: write
+
+# Évite que deux exécutions se chevauchent et se marchent dessus sur le push.
+concurrency:
+  group: update-hemicycle
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install -r Hemicycle/requirements.txt
+
+      - name: Régénérer la carte depuis les données de l'Assemblée
+        run: python hemicycle.py
+        working-directory: Hemicycle
+
+      - name: Committer et pousser si la carte a changé
+        run: |
+          if git diff --quiet -- Hemicycle/*.png; then
+            echo "Aucun nouveau scrutin, rien à committer."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Hemicycle/hemicycle_carte.png Hemicycle/hemicycle_groupes.png
+          git commit -m "Mise à jour automatique de la carte des députés"
+          git push
