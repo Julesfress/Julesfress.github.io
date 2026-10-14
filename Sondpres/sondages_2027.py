@@ -347,21 +347,38 @@ def parse_table(table_el, config: ElectionConfig,
     cols = list(df.columns)
 
     def find(*needles):
+        """Positions des colonnes dont l'en-tête contient l'un des libellés.
+
+        Des positions, et non des noms : un même en-tête peut coiffer
+        plusieurs colonnes du tableau aplati. Wikipédia écrit en effet les
+        colonnes « larges » avec un colspan (cellule d'en-tête ET cellules de
+        données), que `read_html` déplie en autant de colonnes homonymes ;
+        `df[nom]` renverrait alors un DataFrame et non une série.
+        """
         for needle in needles:
-            for c in cols:
-                if isinstance(c, str) and _strip_accents(needle).lower() in _strip_accents(c).lower():
-                    return c
-        return None
+            hits = [i for i, c in enumerate(cols)
+                    if isinstance(c, str) and _strip_accents(needle).lower() in _strip_accents(c).lower()]
+            if hits:
+                return hits
+        return []
 
     sondeur_c, date_c = find("Sondeur"), find("Date")
     cand_cols = {name: find(*config.aliases.get(name, [name])) for name, _, _ in config.candidates}
-    cand_cols = {k: v for k, v in cand_cols.items() if v is not None}
-    if sondeur_c is None or date_c is None or len(cand_cols) < 3:
+    cand_cols = {k: v for k, v in cand_cols.items() if v}
+    if not sondeur_c or not date_c or len(cand_cols) < 3:
         return [], None  # pas un tableau de sondages de 1er tour
 
-    work = pd.DataFrame({"sondeur": df[sondeur_c], "date_raw": df[date_c]})
-    for name, col in cand_cols.items():
-        work[name] = df[col].map(lambda c, n=name: parse_value(c, n))
+    work = pd.DataFrame({"sondeur": df.iloc[:, sondeur_c[0]],
+                         "date_raw": df.iloc[:, date_c[0]]})
+    for name, idx in cand_cols.items():
+        # plusieurs colonnes pour un candidat : moyenne des valeurs lues (un
+        # colspan déplié les répète à l'identique, la moyenne est alors la
+        # valeur elle-même ; deux hypothèses côte à côte sont moyennées comme
+        # le sont déjà les hypothèses réparties sur plusieurs lignes).
+        vals = pd.concat([pd.to_numeric(df.iloc[:, i].map(lambda c, n=name: parse_value(c, n)),
+                                        errors="coerce")
+                          for i in idx], axis=1)
+        work[name] = vals.mean(axis=1)
 
     # lignes parasites (barre de couleurs, répétition d'en-tête, lignes vides)
     work = work[work["sondeur"].notna()]
