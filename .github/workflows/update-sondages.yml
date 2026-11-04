@@ -28,18 +28,18 @@ jobs:
       - name: Installer les dépendances
         run: pip install -r Sondpres/requirements.txt
 
-      - name: Régénérer le graphique depuis Wikipédia
+      - name: Régénérer les graphiques depuis Wikipédia
         run: python sondages_2027.py
         working-directory: Sondpres
 
-      - name: Committer et pousser si le graphique a changé
+      - name: Committer et pousser si les graphiques ont changé
         run: |
-          if git diff --quiet -- Sondpres/sondages_2027.png; then
+          if git diff --quiet -- Sondpres/sondages_2027.png Sondpres/sondages_2027_blocs.png; then
             echo "Aucun nouveau sondage, rien à committer."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Sondpres/sondages_2027.png
+          git add Sondpres/sondages_2027.png Sondpres/sondages_2027_blocs.png
           git commit -m "Mise à jour automatique des sondages 2027"
           git push

@@ -40,6 +40,15 @@ est celle des courbes. Si la palette change d'un côté, changer l'autre.
    les PNG et le chiffre deviendrait faux en silence. Ces valeurs vivent dans
    l'image, qui est refaite à chaque exécution.
 
+## Entretien de `Sondpres/`
+
+Les graphiques « par bloc » (`sondages_XXXX_blocs.png`) rangent chaque colonne
+des tableaux Wikipédia dans un bloc d'après l'étiquette de parti de son en-tête
+(constantes `BLOCS` et `HORS_BLOCS` de `sondages_2027.py`). Si un candidat d'un
+nouveau parti apparaît, le script le signale à chaque exécution
+(« ⚠ colonnes hors de tout bloc ») : tant qu'on ne l'a pas rangé, il manque au
+total de son bloc.
+
 ## Entretien de `Hemicycle/`
 
 La légende des sigles de groupe est écrite à la main dans `Hemicycle/index.html`,

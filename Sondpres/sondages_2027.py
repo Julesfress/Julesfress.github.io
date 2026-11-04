@@ -15,6 +15,11 @@ Trois élections sont suivies :
 Un même parti garde la même couleur/le même marqueur d'une élection à
 l'autre (ex. Macron 2017/2022 et Attal 2027 partagent la couleur « RE »).
 
+Chaque élection a en outre une vue « par bloc » (sondages_XXXX_blocs.png) :
+total de la gauche, du centre et de la droite, et de l'extrême droite,
+sommé sondage par sondage sur TOUS les candidats testés, pas seulement ceux
+de la vue par candidat (cf. BLOCS).
+
 Le lissage est une moyenne à noyau gaussien en jours, dont la largeur de
 fenêtre n'est pas fixe mais pilotée par le NOMBRE de sondages disponibles :
 elle s'ajuste en continu pour couvrir toujours à peu près le même nombre de
@@ -29,8 +34,9 @@ les derniers sondages plutôt qu'une moyenne en retard sur eux.
 Tous les graphiques démarrent en avril de l'année précédant l'élection.
 
 Usage :
-    python sondages_2027.py                    # génère sondages_2027.png
-    python sondages_2027.py --election 2017     # génère sondages_2017.png
+    python sondages_2027.py                    # génère sondages_2027.png et sondages_2027_blocs.png
+    python sondages_2027.py --election 2017     # génère sondages_2017.png et sondages_2017_blocs.png
+    python sondages_2027.py --vue blocs         # seulement la vue par bloc
     python sondages_2027.py --election all      # les trois graphiques
     python sondages_2027.py -o chart.png        # fichier de sortie
     python sondages_2027.py --watch 60          # régénère toutes les 60 min si la page a changé
@@ -41,6 +47,7 @@ Dépendances : requests, pandas, matplotlib, lxml   (voir requirements.txt)
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import io
 import re
@@ -94,6 +101,33 @@ PARTIES = {
     "REC": ("#8B3A1A", "h"),   # Zemmour
 }
 
+# Vue par bloc : chaque colonne d'un tableau de sondages est rattachée à un
+# bloc d'après l'étiquette de parti de son en-tête (« Mélenchon (LFI) »,
+# « Candidat PS / PP » -> LFI, PS), si bien que les candidats testés
+# seulement quelques mois (Hollande, Juppé, Taubira, Philippot...) comptent
+# aussi. Gauche : d'Arthaud à Glucksmann ; centre et droite : d'Attal à
+# Retailleau ; extrême droite : de Dupont-Aignan à Zemmour. Les candidats
+# inclassables (Lassalle, Asselineau, Cheminade, Poisson, Thouy : cf.
+# HORS_BLOCS) et la colonne « Autres » ne sont comptés nulle part. Une
+# étiquette absente des deux listes est signalée à chaque exécution : c'est
+# un nouveau parti à ranger, sans quoi il manquerait au total de son bloc.
+# Les couleurs reprennent celles de LFI, LR et RN, déjà validées ensemble
+# dans la vue par candidat.
+BLOCS = [
+    ("Gauche", "#D55E00", "s",
+     {"LO", "NPA", "NPA-A", "FG", "LFI", "PCF", "EELV", "LE", "G.S", "PS", "PP",
+      "PRG", "DVG"}),
+    ("Centre et droite", "#6A3D9A", "D",
+     {"EM", "LREM", "REN", "RE", "ENS", "EPR", "MODEM", "UDI", "HOR", "LFH", "NE",
+      "UMP", "LR", "SL", "DVD"}),
+    ("Extrême droite", "#0072B2", "o",
+     {"DLR", "DLF", "MPF", "LP", "FN", "RN", "REC", "EXD"}),
+]
+# En-têtes sans étiquette (« Nicolas Hulot ») ou dont l'étiquette trompe :
+# Macron, sondé en 2016 comme « (SE) » ou « (DVG) » avant de fonder EM.
+BLOC_BY_NAME = {"macron": "Centre et droite", "hulot": "Gauche"}
+HORS_BLOCS = {"RES", "UPR", "S&P", "SP", "VIA", "PA"}
+
 
 def _c(name: str, party: str) -> tuple[str, str, str]:
     color, marker = PARTIES[party]
@@ -113,6 +147,10 @@ class ElectionConfig:
     # que l'axe s'arrête au même point que les élections passées et reste
     # comparable, même si les courbes, elles, s'arrêtent avant.
     election_date: date | None = None
+
+    @property
+    def blocs_outfile(self) -> str:
+        return self.outfile.replace(".png", "_blocs.png")
 
 
 CONFIGS: dict[int, ElectionConfig] = {
@@ -230,13 +268,16 @@ def inject_explicit_years(html: str) -> str:
     return _TIME_TAG_RE.sub(repl, html)
 
 
-def parse_value(cell, accept_name=None) -> float | None:
+def parse_value(cell, accept_name=None, any_name: bool = False) -> float | None:
     """Convertit une cellule en pourcentage.
 
     - nombre « pur » (« 16 », « 2,5 ») -> valeur : c'est le candidat de la colonne.
     - cellule avec un nom (« 9 Hollande », « 36 Bardella ») -> None, SAUF si le nom
       du candidat suivi y figure (« 32 Le Pen », « 34 Bardella / Le Pen »), ce qui
       permet d'isoler Le Pen dans la colonne ambiguë « Candidat RN » du 1er sem. 2026.
+    - avec `any_name`, toute cellule commençant par un nombre est acceptée,
+      quel que soit le nom qui suit : pour un total de bloc, « 9 Hollande »
+      dans la colonne PS / PP compte bien pour la gauche.
     - « — », vide, etc. -> None.
     """
     if cell is None or (isinstance(cell, float) and pd.isna(cell)):
@@ -248,9 +289,9 @@ def parse_value(cell, accept_name=None) -> float | None:
         return None
     if re.fullmatch(r"\d+(?:[.,]\d+)?", txt):          # nombre pur
         return float(txt.replace(",", "."))
-    if accept_name:                                    # nombre + nom : seulement si c'est le bon candidat
+    if accept_name or any_name:                        # nombre + nom : seulement si c'est le bon candidat
         m = re.match(r"(\d+(?:[.,]\d+)?)", txt)
-        if m and _strip_accents(accept_name).lower() in _strip_accents(txt).lower():
+        if m and (any_name or _strip_accents(accept_name).lower() in _strip_accents(txt).lower()):
             return float(m.group(1).replace(",", "."))
     return None                                        # autre chose (un autre nom) -> ignoré
 
@@ -331,15 +372,76 @@ def table_month_hint(table_el) -> tuple[int, int] | None:
     return (int(ym.group(1)), FR_MONTHS[mm.group()]) if (ym and mm) else None
 
 
-def parse_table(table_el, config: ElectionConfig,
-                 year_hint: int | None) -> tuple[list[dict], dict | None]:
+def split_colspans(table_el):
+    """Copie du tableau où chaque cellule de données à colspan n'occupe plus
+    que sa première colonne, les suivantes recevant des cellules vides.
+
+    `read_html` recopie une cellule étalée dans chacune des colonnes qu'elle
+    couvre. Pour un candidat, c'est sans conséquence ; pour un total de bloc,
+    « 24 Philippe » étalé sur les colonnes Attal et Philippe (candidature
+    commune testée) serait compté deux fois. Les rowspan, eux, sont laissés
+    tels quels : un même candidat répété d'une hypothèse à l'autre doit bien
+    compter dans chacune.
+    """
+    table_el = copy.deepcopy(table_el)
+    for td in list(table_el.iter("td")):
+        n = int(td.get("colspan") or 1)
+        if n <= 1:
+            continue
+        td.set("colspan", "1")
+        for _ in range(n - 1):
+            blank = LH.Element("td")
+            if td.get("rowspan"):
+                blank.set("rowspan", td.get("rowspan"))
+            td.addnext(blank)
+    return table_el
+
+
+def party_of(header) -> str | None:
+    """Étiquette de parti d'un en-tête de colonne : « Mélenchon (LFI) » ->
+    LFI, « Candidat PS / PP » -> PS ; None pour une colonne sans étiquette
+    (« Sondeur », « Autres », « Indécis (échantillon) »...) : une étiquette
+    de parti commence toujours par une majuscule."""
+    if not isinstance(header, str):
+        return None
+    h = re.sub(r"\[[^\]]*\]", "", header).strip()     # retire les appels de note [c]
+    m = re.search(r"\(([A-Z][^)]*)\)\s*$", h) or re.match(r"Candidat\s+([A-Z].*)$", h)
+    return re.split(r"\s*/\s*", m.group(1).strip())[0].upper() if m else None
+
+
+def bloc_of(header) -> str | None:
+    """Bloc politique d'une colonne d'après son en-tête (cf. BLOCS), ou None."""
+    if not isinstance(header, str):
+        return None
+    low = _strip_accents(header).lower()
+    for name, bloc in BLOC_BY_NAME.items():
+        if name in low:
+            return bloc
+    party = party_of(header)
+    for bloc, _, _, parties in BLOCS:
+        if party in parties:
+            return bloc
+    return None
+
+
+def parse_table(table_el, config: ElectionConfig, year_hint: int | None,
+                 blocs: bool = False,
+                 unknown: set[str] | None = None) -> tuple[list[dict], dict | None]:
     """Extrait un tableau de sondages : moyenne des hypothèses par sondage.
+
+    Avec `blocs`, chaque série n'est plus un candidat mais un bloc : dans
+    chaque ligne (hypothèse), somme des candidats du bloc, puis moyenne des
+    hypothèses comme pour un candidat. Les en-têtes dont l'étiquette de
+    parti n'est rangée nulle part (ni BLOCS ni HORS_BLOCS) sont ajoutés à
+    `unknown`.
 
     Renvoie (records, resultat_reel). `resultat_reel` est un dict
     {candidat: valeur} tiré d'une éventuelle ligne « Résultats » — le
     résultat officiel du 1er tour, présent tel quel sur les pages
     d'élections passées — ou None si la ligne est absente (élection à venir).
     """
+    if blocs:
+        table_el = split_colspans(table_el)
     df = pd.read_html(io.StringIO(LH.tostring(table_el, encoding="unicode")),
                       thousands=None)[0]
     # aplatit l'en-tête multi-niveaux vers les noms (niveau le plus bas)
@@ -362,29 +464,53 @@ def parse_table(table_el, config: ElectionConfig,
                 return hits
         return []
 
+    def read(idx, accept_name=None, any_name=False):
+        """Valeurs lues dans les colonnes aux positions `idx`, une colonne par position."""
+        return pd.concat([pd.to_numeric(df.iloc[:, i].map(
+                              lambda c: parse_value(c, accept_name, any_name)), errors="coerce")
+                          for i in idx], axis=1)
+
     sondeur_c, date_c = find("Sondeur"), find("Date")
-    cand_cols = {name: find(*config.aliases.get(name, [name])) for name, _, _ in config.candidates}
-    cand_cols = {k: v for k, v in cand_cols.items() if v}
-    if not sondeur_c or not date_c or len(cand_cols) < 3:
+    if blocs:
+        bloc_cols: dict[str, list[int]] = {}
+        for i, c in enumerate(cols):
+            b = bloc_of(c)
+            if b:
+                bloc_cols.setdefault(b, []).append(i)
+            elif unknown is not None and party_of(c) and party_of(c) not in HORS_BLOCS:
+                unknown.add(c)
+        series_ok = len(bloc_cols) == len(BLOCS)
+    else:
+        cand_cols = {name: find(*config.aliases.get(name, [name])) for name, _, _ in config.candidates}
+        cand_cols = {k: v for k, v in cand_cols.items() if v}
+        series_ok = len(cand_cols) >= 3
+    if not sondeur_c or not date_c or not series_ok:
         return [], None  # pas un tableau de sondages de 1er tour
 
     work = pd.DataFrame({"sondeur": df.iloc[:, sondeur_c[0]],
                          "date_raw": df.iloc[:, date_c[0]]})
-    for name, idx in cand_cols.items():
-        # plusieurs colonnes pour un candidat : moyenne des valeurs lues (un
-        # colspan déplié les répète à l'identique, la moyenne est alors la
-        # valeur elle-même ; deux hypothèses côte à côte sont moyennées comme
-        # le sont déjà les hypothèses réparties sur plusieurs lignes).
-        vals = pd.concat([pd.to_numeric(df.iloc[:, i].map(lambda c, n=name: parse_value(c, n)),
-                                        errors="coerce")
-                          for i in idx], axis=1)
-        work[name] = vals.mean(axis=1)
+    if blocs:
+        for bloc, idx in bloc_cols.items():
+            # total du bloc dans la ligne : une cellule = un candidat (cf.
+            # split_colspans), même deux cellules sous un même en-tête
+            # (« 4 Hollande (PS) » à côté de « 5 » sous Glucksmann). Les
+            # candidats non testés dans cette hypothèse (« — ») ne comptent
+            # pas, mais une ligne sans aucune valeur pour le bloc reste vide.
+            work[bloc] = read(idx, any_name=True).sum(axis=1, min_count=1)
+    else:
+        for name, idx in cand_cols.items():
+            # plusieurs colonnes pour un candidat : moyenne des valeurs lues
+            # (un colspan déplié les répète à l'identique, la moyenne est
+            # alors la valeur elle-même ; deux hypothèses côte à côte sont
+            # moyennées comme le sont déjà les hypothèses réparties sur
+            # plusieurs lignes).
+            work[name] = read(idx, accept_name=name).mean(axis=1)
 
     # lignes parasites (barre de couleurs, répétition d'en-tête, lignes vides)
     work = work[work["sondeur"].notna()]
     work["sondeur"] = work["sondeur"].astype(str).str.strip()
     work = work[work["sondeur"].str.lower() != "sondeur"]
-    num_cols = list(cand_cols)
+    num_cols = list(bloc_cols) if blocs else list(cand_cols)
     work = work[work[num_cols].notna().any(axis=1)]
     if work.empty:
         return [], None
@@ -422,13 +548,15 @@ def parse_table(table_el, config: ElectionConfig,
     return records, final_result
 
 
-def extract_polls(html: str, config: ElectionConfig) -> tuple[pd.DataFrame, dict]:
+def extract_polls(html: str, config: ElectionConfig,
+                  blocs: bool = False) -> tuple[pd.DataFrame, dict]:
     """Parcourt la page, ne garde que les tableaux « 1er tour » depuis START."""
     html = inject_explicit_years(html)
     tree = LH.fromstring(html)
     cur_h2, year_hint = "", None
     records: list[dict] = []
     final_results: dict = {}
+    unknown: set[str] = set()
     for el in tree.iter("h2", "h3", "h4", "h5", "div", "table"):
         if el.tag in ("h2", "h3", "h4", "h5"):
             if el.tag in ("h2", "h3"):
@@ -456,11 +584,18 @@ def extract_polls(html: str, config: ElectionConfig) -> tuple[pd.DataFrame, dict
                 continue
             if "premier tour" not in _strip_accents(cur_h2).lower():
                 continue
-            recs, final_result = parse_table(el, config, year_hint)
+            recs, final_result = parse_table(el, config, year_hint, blocs, unknown)
             records.extend(recs)
-            if final_result:
+            # un résultat n'est retenu que si son tableau contient aussi des
+            # sondages de la période étudiée : la page 2027 rappelle les
+            # derniers sondages de 2022 et leur ligne « Résultats », qui ne
+            # sont pas ceux de 2027.
+            if final_result and recs:
                 final_results.update(final_result)
 
+    if unknown:
+        print(f"⚠ {config.year} : colonnes hors de tout bloc, à ranger dans BLOCS ou "
+              f"HORS_BLOCS : {', '.join(sorted(unknown))}", file=sys.stderr)
     df = pd.DataFrame(records)
     if df.empty:
         raise RuntimeError(f"Aucun sondage 1er tour depuis {config.start} trouvé pour "
@@ -565,7 +700,7 @@ def poll_smooth(dates_num, values, grid):
 # 4. Graphique
 # ---------------------------------------------------------------------------
 def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
-               revision: str, outfile: str, show: bool):
+               revision: str, outfile: str, show: bool, blocs: bool = False):
     import matplotlib.pyplot as plt
     import matplotlib.dates as mdates
     import matplotlib.ticker as mticker
@@ -596,7 +731,9 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
     grid = np.arange(xmin, last_poll_x + 1)
 
     end_labels = []  # (y, couleur, marqueur, texte) pour placement anti-collision
-    for name, color, marker in config.candidates:
+    series = [(name, color, marker) for name, color, marker, _ in BLOCS] if blocs \
+        else config.candidates
+    for name, color, marker in series:
         sub = df[df["candidat"] == name].sort_values("date")
         if sub.empty:
             continue
@@ -662,7 +799,8 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
         ax.spines[spine].set_visible(False)
     ax.tick_params(length=0)
 
-    ax.set_title(f"Présidentielle {config.year} — intentions de vote au 1er tour",
+    ax.set_title(f"Présidentielle {config.year} — intentions de vote au 1er tour"
+                 + (", par bloc" if blocs else ""),
                  fontsize=17, fontweight="bold", loc="left", color=INK, pad=16)
     ax.text(0, -0.115, "Wikipédia", transform=ax.transAxes, fontsize=8, color=MUTED)
 
@@ -678,11 +816,14 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
 # ---------------------------------------------------------------------------
 # 5. Orchestration
 # ---------------------------------------------------------------------------
-def build_once(config: ElectionConfig, outfile: str, show: bool) -> str:
-    html, rev = fetch_page(config.page_title)
-    df, final_results = extract_polls(html, config)
-    make_chart(df, config, final_results, rev, outfile, show)
-    return hashlib.md5(html.encode("utf-8")).hexdigest()
+def render(html: str, rev: str, config: ElectionConfig, views: list[bool],
+           output: str | None, show: bool):
+    """Trace les vues demandées (False : par candidat, True : par bloc) à
+    partir d'une seule lecture de la page."""
+    for blocs in views:
+        df, final_results = extract_polls(html, config, blocs)
+        outfile = output or (config.blocs_outfile if blocs else config.outfile)
+        make_chart(df, config, final_results, rev, outfile, show, blocs)
 
 
 def main():
@@ -692,6 +833,8 @@ def main():
                     help="fichier image de sortie (défaut : celui de l'élection choisie)")
     ap.add_argument("--election", choices=["2017", "2022", "2027", "all"], default="2027",
                     help="élection à tracer (défaut : 2027, la seule suivie en direct)")
+    ap.add_argument("--vue", choices=["candidats", "blocs", "toutes"], default="toutes",
+                    help="graphique par candidat, par bloc, ou les deux (défaut)")
     ap.add_argument("--show", action="store_true", help="afficher la fenêtre du graphique")
     ap.add_argument("--watch", type=float, metavar="MIN", default=None,
                     help="régénère toutes les MIN minutes si la page Wikipédia a changé "
@@ -702,20 +845,21 @@ def main():
         matplotlib.use("Agg")
 
     years = [2017, 2022, 2027] if args.election == "all" else [int(args.election)]
-    if args.output and len(years) != 1:
-        ap.error("-o/--output ne fonctionne qu'avec une seule élection à la fois "
-                 "(sinon les trois graphiques s'écraseraient dans le même fichier)")
+    views = {"candidats": [False], "blocs": [True], "toutes": [False, True]}[args.vue]
+    if args.output and (len(years) != 1 or len(views) != 1):
+        ap.error("-o/--output ne fonctionne qu'avec une seule élection et une seule vue "
+                 "(sinon les graphiques s'écraseraient dans le même fichier)")
 
     if args.watch is None:
         for year in years:
             config = CONFIGS[year]
-            build_once(config, args.output or config.outfile, args.show)
+            html, rev = fetch_page(config.page_title)
+            render(html, rev, config, views, args.output, args.show)
         return
 
     if len(years) != 1:
         ap.error("--watch ne fonctionne qu'avec une seule élection à la fois")
     config = CONFIGS[years[0]]
-    outfile = args.output or config.outfile
     print(f"Mode veille : vérification toutes les {args.watch} min "
           f"(Ctrl+C pour arrêter).")
     last = None
@@ -724,8 +868,7 @@ def main():
             html, rev = fetch_page(config.page_title)
             h = hashlib.md5(html.encode("utf-8")).hexdigest()
             if h != last:
-                df, final_results = extract_polls(html, config)
-                make_chart(df, config, final_results, rev, outfile, show=False)
+                render(html, rev, config, views, args.output, show=False)
                 last = h
             else:
                 print(f"[{datetime.now():%H:%M}] aucune modification.")
