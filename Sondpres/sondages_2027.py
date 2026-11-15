@@ -7,7 +7,7 @@ présidentielle française de XXXX »).
 
 Trois élections sont suivies :
   - 2027 (à venir) : Le Pen, Mélenchon, Philippe, Attal, Glucksmann,
-    Retailleau, Tondelier — la page bouge, le graphique se met à jour à
+    Retailleau, Lisnard — la page bouge, le graphique se met à jour à
     chaque exécution (ou en continu avec --watch).
   - 2022 et 2017 (passées) : seuls les 5 candidats arrivés en tête au 1er
     tour sont tracés, et le graphique se termine sur le résultat réel du
@@ -96,7 +96,7 @@ PARTIES = {
     "LR":  ("#6A3D9A", "P"),   # Fillon / Pécresse / Retailleau
     "HOR": ("#C9AE00", "^"),   # Philippe
     "PP":  ("#CC79A7", "v"),   # Glucksmann
-    "LE":  ("#009E73", "X"),   # Tondelier
+    "NE":  ("#009E73", "X"),   # Lisnard (Nouvelle Énergie)
     "PS":  ("#E69F00", "*"),   # Hamon
     "REC": ("#8B3A1A", "h"),   # Zemmour
 }
@@ -161,7 +161,7 @@ CONFIGS: dict[int, ElectionConfig] = {
         candidates=[
             _c("Le Pen", "RN"), _c("Mélenchon", "LFI"), _c("Philippe", "HOR"),
             _c("Attal", "RE"), _c("Glucksmann", "PP"), _c("Retailleau", "LR"),
-            _c("Tondelier", "LE"),
+            _c("Lisnard", "NE"),
         ],
         # En-tête alternatif : au 1er semestre 2026, la colonne du RN était
         # intitulée « Candidat RN » (candidature Le Pen / Bardella encore
