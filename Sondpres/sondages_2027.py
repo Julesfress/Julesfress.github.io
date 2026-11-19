@@ -6,14 +6,14 @@ française, lues EN DIRECT sur Wikipédia (« Liste de sondages sur l'élection
 présidentielle française de XXXX »).
 
 Trois élections sont suivies :
-  - 2027 (à venir) : Le Pen, Mélenchon, Philippe, Attal, Glucksmann,
-    Retailleau, Lisnard — la page bouge, le graphique se met à jour à
-    chaque exécution (ou en continu avec --watch).
+  - 2027 (à venir) : Le Pen, Mélenchon, Philippe, Glucksmann, Lisnard —
+    la page bouge, le graphique se met à jour à chaque exécution (ou en
+    continu avec --watch).
   - 2022 et 2017 (passées) : seuls les 5 candidats arrivés en tête au 1er
     tour sont tracés, et le graphique se termine sur le résultat réel du
     scrutin (extrait de la page elle-même), pas sur une estimation.
 Un même parti garde la même couleur/le même marqueur d'une élection à
-l'autre (ex. Macron 2017/2022 et Attal 2027 partagent la couleur « RE »).
+l'autre (ex. Macron 2017 et 2022 partagent la couleur « RE »).
 
 Chaque élection a en outre une vue « par bloc » (sondages_XXXX_blocs.png) :
 total de la gauche, du centre et de la droite, et de l'extrême droite,
@@ -85,15 +85,15 @@ EDGE_RIDGE       = 0.25   # amortit la pente locale quand les sondages de la fen
                           # trop resserrés dans le temps pour en estimer une (en unités de fenêtre)
 
 # Couleur + marqueur par PARTI (pas par candidat) : un même parti garde le
-# même code visuel d'une élection à l'autre — ex. Macron 2017/2022 et Attal
-# 2027 partagent « RE », Fillon/Pécresse/Retailleau partagent « LR ». Palette
+# même code visuel d'une élection à l'autre — ex. Macron 2017 et 2022
+# partagent « RE », Fillon et Pécresse partagent « LR ». Palette
 # Okabe-Ito + extensions, validée daltonisme (skill dataviz : toutes les
 # combinaisons utilisées ci-dessous passent CVD ΔE >= 8, plancher normal >= 15).
 PARTIES = {
     "RN":  ("#0072B2", "o"),   # Le Pen
     "LFI": ("#D55E00", "s"),   # Mélenchon
-    "RE":  ("#56B4E9", "D"),   # Macron / Attal (En Marche -> LREM -> Renaissance)
-    "LR":  ("#6A3D9A", "P"),   # Fillon / Pécresse / Retailleau
+    "RE":  ("#56B4E9", "D"),   # Macron (En Marche -> LREM -> Renaissance)
+    "LR":  ("#6A3D9A", "P"),   # Fillon / Pécresse
     "HOR": ("#C9AE00", "^"),   # Philippe
     "PP":  ("#CC79A7", "v"),   # Glucksmann
     "NE":  ("#009E73", "X"),   # Lisnard (Nouvelle Énergie)
@@ -160,8 +160,7 @@ CONFIGS: dict[int, ElectionConfig] = {
         start=date(2026, 4, 1),
         candidates=[
             _c("Le Pen", "RN"), _c("Mélenchon", "LFI"), _c("Philippe", "HOR"),
-            _c("Attal", "RE"), _c("Glucksmann", "PP"), _c("Retailleau", "LR"),
-            _c("Lisnard", "NE"),
+            _c("Glucksmann", "PP"), _c("Lisnard", "NE"),
         ],
         # En-tête alternatif : au 1er semestre 2026, la colonne du RN était
         # intitulée « Candidat RN » (candidature Le Pen / Bardella encore
@@ -405,6 +404,10 @@ def party_of(header) -> str | None:
     if not isinstance(header, str):
         return None
     h = re.sub(r"\[[^\]]*\]", "", header).strip()     # retire les appels de note [c]
+    # retire le suffixe « .1 », « .2 »... que `read_html` ajoute aux en-têtes
+    # en double (deux colonnes « Candidat EPR » : Attal ET Philippe dans la
+    # même hypothèse) ; sans cela le parti « EPR.1 » ne serait rangé nulle part.
+    h = re.sub(r"\.\d+$", "", h).strip()
     m = re.search(r"\(([A-Z][^)]*)\)\s*$", h) or re.match(r"Candidat\s+([A-Z].*)$", h)
     return re.split(r"\s*/\s*", m.group(1).strip())[0].upper() if m else None
 
@@ -741,7 +744,7 @@ def make_chart(df: pd.DataFrame, config: ElectionConfig, final_results: dict,
         y = sub["valeur"].to_numpy()
 
         # nuage de points bruts (léger)
-        ax.scatter(d, y, s=16, color=color, alpha=0.28, marker=marker,
+        ax.scatter(d, y, s=16, color=color, alpha=0.18, marker=marker,
                    linewidths=0, zorder=2)
 
         # courbe lissée, continue, restreinte à l'étendue des données du
