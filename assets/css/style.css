@@ -291,6 +291,16 @@ a.row:hover .go {
   margin: 0;
 }
 
+/* Intertitre entre deux séries de planches (Instituts/) */
+.part {
+  margin: clamp(18px, 3vw, 40px) 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
 /* Méthode en quelques étapes numérotées, côte à côte sur grand écran
    (Instituts/) : les numéros reprennent ceux de la liste d'accueil. */
 .method h2 {

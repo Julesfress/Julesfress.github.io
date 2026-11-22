@@ -1,0 +1,996 @@
+horizon_jours,scrutin,jour_du_vote,institut,fin_du_terrain,candidat_ou_liste,sondage,resultat,ecart
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,Philippe Poutou (NPA),1.5,1.09,+0.41
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,Jean-Luc Mélenchon (LFI),18.5,19.58,-1.08
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,Benoît Hamon (PS),7,6.36,+0.64
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,Emmanuel Macron (EM),24.5,24.01,+0.49
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,Jean Lassalle (RES),1,1.21,-0.21
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,François Fillon (LR),19.5,20.01,-0.51
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,Nicolas Dupont-Aignan (DLF),4,4.7,-0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-04-21,Marine Le Pen (FN),22.5,21.3,+1.20
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,Philippe Poutou (NPA),1.5,1.09,+0.41
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,Jean-Luc Mélenchon (LFI),19,19.58,-0.58
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,Benoît Hamon (PS),7.5,6.36,+1.14
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,Emmanuel Macron (EM),24,24.01,-0.01
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,Jean Lassalle (RES),1.5,1.21,+0.29
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,François Fillon (LR),19,20.01,-1.01
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,Nicolas Dupont-Aignan (DLF),4,4.7,-0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-04-20,Marine Le Pen (FN),22,21.3,+0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,Philippe Poutou (NPA),2,1.09,+0.91
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,Jean-Luc Mélenchon (LFI),18,19.58,-1.58
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,Benoît Hamon (PS),8,6.36,+1.64
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,Emmanuel Macron (EM),23,24.01,-1.01
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,Jean Lassalle (RES),1,1.21,-0.21
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,François Fillon (LR),21,20.01,+0.99
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,Nicolas Dupont-Aignan (DLF),4,4.7,-0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-04-21,Marine Le Pen (FN),22,21.3,+0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,Philippe Poutou (NPA),1.5,1.09,+0.41
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,Jean-Luc Mélenchon (LFI),19,19.58,-0.58
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,Benoît Hamon (PS),7.5,6.36,+1.14
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,Emmanuel Macron (EM),25,24.01,+0.99
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,Jean Lassalle (RES),1,1.21,-0.21
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,François Fillon (LR),19,20.01,-1.01
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,Nicolas Dupont-Aignan (DLF),4,4.7,-0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-04-19,Marine Le Pen (FN),22,21.3,+0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,Philippe Poutou (NPA),1.5,1.09,+0.41
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,Jean-Luc Mélenchon (LFI),19.5,19.58,-0.08
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,Benoît Hamon (PS),7,6.36,+0.64
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,Emmanuel Macron (EM),24,24.01,-0.01
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,Jean Lassalle (RES),1,1.21,-0.21
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,François Fillon (LR),20,20.01,-0.01
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,Nicolas Dupont-Aignan (DLF),4,4.7,-0.70
+0,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-04-20,Marine Le Pen (FN),21.5,21.3,+0.20
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,Philippe Poutou (NPA),1,1.09,-0.09
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,Jean-Luc Mélenchon (LFI),19,19.58,-0.58
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,Benoît Hamon (PS),7.5,6.36,+1.14
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,Emmanuel Macron (EM),24.5,24.01,+0.49
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,Jean Lassalle (RES),0.5,1.21,-0.71
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,François Fillon (LR),19,20.01,-1.01
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,Nicolas Dupont-Aignan (DLF),4.5,4.7,-0.20
+0,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-04-21,Marine Le Pen (FN),23,21.3,+1.70
+0,Présidentielle 2017 · 2d tour,2017-05-07,Ifop,2017-05-05,Emmanuel Macron,63,66.1,-3.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Ifop,2017-05-05,Marine Le Pen,37,33.9,+3.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Ipsos,2017-05-05,Emmanuel Macron,63,66.1,-3.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Ipsos,2017-05-05,Marine Le Pen,37,33.9,+3.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,OpinionWay,2017-05-04,Emmanuel Macron,62,66.1,-4.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,OpinionWay,2017-05-04,Marine Le Pen,38,33.9,+4.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Harris Interactive,2017-05-05,Emmanuel Macron,62,66.1,-4.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Harris Interactive,2017-05-05,Marine Le Pen,38,33.9,+4.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Elabe,2017-05-04,Emmanuel Macron,62,66.1,-4.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Elabe,2017-05-04,Marine Le Pen,38,33.9,+4.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Odoxa,2017-05-04,Emmanuel Macron,62,66.1,-4.10
+0,Présidentielle 2017 · 2d tour,2017-05-07,Odoxa,2017-05-04,Marine Le Pen,38,33.9,+4.10
+0,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-31,LFI,12,11.02,+0.98
+0,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-31,PCF,2.5,2.72,-0.22
+0,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-31,ECO,3,4.3,-1.30
+0,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-31,PS-PRG,7.5,7.91,-0.41
+0,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-31,LREM-MoDem,31,32.32,-1.32
+0,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-31,LR-UDI,19,18.8,+0.20
+0,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-31,FN,18,13.2,+4.80
+0,Législatives 2017 · 1er tour,2017-06-11,Ipsos,2017-06-08,LFI,11.5,11.02,+0.48
+0,Législatives 2017 · 1er tour,2017-06-11,Ipsos,2017-06-08,PCF,2,2.72,-0.72
+0,Législatives 2017 · 1er tour,2017-06-11,Ipsos,2017-06-08,ECO,3,4.3,-1.30
+0,Législatives 2017 · 1er tour,2017-06-11,Ipsos,2017-06-08,PS-PRG,8,7.91,+0.09
+0,Législatives 2017 · 1er tour,2017-06-11,Ipsos,2017-06-08,LREM-MoDem,31.5,32.32,-0.82
+0,Législatives 2017 · 1er tour,2017-06-11,Ipsos,2017-06-08,LR-UDI,22,18.8,+3.20
+0,Législatives 2017 · 1er tour,2017-06-11,Ipsos,2017-06-08,FN,17,13.2,+3.80
+0,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-06-08,LFI,12,11.02,+0.98
+0,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-06-08,PCF,3,2.72,+0.28
+0,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-06-08,ECO,3,4.3,-1.30
+0,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-06-08,PS-PRG,7,7.91,-0.91
+0,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-06-08,LREM-MoDem,30,32.32,-2.32
+0,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-06-08,LR-UDI,21,18.8,+2.20
+0,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-06-08,FN,18,13.2,+4.80
+0,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-06-01,LFI,11,11.02,-0.02
+0,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-06-01,PCF,2,2.72,-0.72
+0,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-06-01,ECO,3,4.3,-1.30
+0,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-06-01,PS-PRG,8,7.91,+0.09
+0,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-06-01,LREM-MoDem,31,32.32,-1.32
+0,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-06-01,LR-UDI,18,18.8,-0.80
+0,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-06-01,FN,18,13.2,+4.80
+0,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-06-08,LFI,11,11.02,-0.02
+0,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-06-08,PCF,2,2.72,-0.72
+0,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-06-08,ECO,3,4.3,-1.30
+0,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-06-08,PS-PRG,9,7.91,+1.09
+0,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-06-08,LREM-MoDem,29,32.32,-3.32
+0,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-06-08,LR-UDI,23,18.8,+4.20
+0,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-06-08,FN,17,13.2,+3.80
+0,Législatives 2017 · 1er tour,2017-06-11,Odoxa,2017-06-01,LFI,11,11.02,-0.02
+0,Législatives 2017 · 1er tour,2017-06-11,Odoxa,2017-06-01,PCF,3,2.72,+0.28
+0,Législatives 2017 · 1er tour,2017-06-11,Odoxa,2017-06-01,ECO,3,4.3,-1.30
+0,Législatives 2017 · 1er tour,2017-06-11,Odoxa,2017-06-01,PS-PRG,8,7.91,+0.09
+0,Législatives 2017 · 1er tour,2017-06-11,Odoxa,2017-06-01,LREM-MoDem,33,32.32,+0.68
+0,Législatives 2017 · 1er tour,2017-06-11,Odoxa,2017-06-01,LR-UDI,19,18.8,+0.20
+0,Législatives 2017 · 1er tour,2017-06-11,Odoxa,2017-06-01,FN,18,13.2,+4.80
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,FI,7.5,6.31,+1.19
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,PCF,3,2.49,+0.51
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,G·s,2,3.27,-1.27
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,PP-PS ND-PRG,5.5,6.19,-0.69
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,EELV AEI-RPS,8,13.48,-5.48
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,GÉ MEI-MDP,0.5,1.82,-1.32
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,LREM-MoDem Agir-MR,23,22.41,+0.59
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,UDI,1.5,2.5,-1.00
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,LR LC,13.5,8.48,+5.02
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,DLF,4,3.51,+0.49
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,RN,25.5,23.33,+2.17
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,UPR,1,1.17,-0.17
+0,Européennes 2019,2019-05-26,Ifop,2019-05-24,PA,1.5,2.17,-0.67
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,FI,7.5,6.31,+1.19
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,PCF,2.5,2.49,+0.01
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,G·s,3,3.27,-0.27
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,PP-PS ND-PRG,5.5,6.19,-0.69
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,EELV AEI-RPS,9,13.48,-4.48
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,GÉ MEI-MDP,0.5,1.82,-1.32
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,LREM-MoDem Agir-MR,23,22.41,+0.59
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,UDI,1.5,2.5,-1.00
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,LR LC,13,8.48,+4.52
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,DLF,3.5,3.51,-0.01
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,RN,24.5,23.33,+1.17
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,UPR,1,1.17,-0.17
+0,Européennes 2019,2019-05-26,Ipsos,2019-05-23,PA,1.5,2.17,-0.67
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,FI,8,6.31,+1.69
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,PCF,3,2.49,+0.51
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,G·s,2,3.27,-1.27
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,PP-PS ND-PRG,6,6.19,-0.19
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,EELV AEI-RPS,9,13.48,-4.48
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,GÉ MEI-MDP,1,1.82,-0.82
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,LREM-MoDem Agir-MR,23,22.41,+0.59
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,UDI,1,2.5,-1.50
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,LR LC,13,8.48,+4.52
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,DLF,3,3.51,-0.51
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,RN,25,23.33,+1.67
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,UPR,1,1.17,-0.17
+0,Européennes 2019,2019-05-26,OpinionWay,2019-05-22,PA,1,2.17,-1.17
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,FI,9,6.31,+2.69
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,PCF,3.5,2.49,+1.01
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,G·s,2,3.27,-1.27
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,PP-PS ND-PRG,5,6.19,-1.19
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,EELV AEI-RPS,7.5,13.48,-5.98
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,GÉ MEI-MDP,1,1.82,-0.82
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,LREM-MoDem Agir-MR,22.5,22.41,+0.09
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,UDI,1.5,2.5,-1.00
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,LR LC,12,8.48,+3.52
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,DLF,3.5,3.51,-0.01
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,RN,25,23.33,+1.67
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,UPR,1,1.17,-0.17
+0,Européennes 2019,2019-05-26,Harris Interactive,2019-05-24,PA,0,2.17,-2.17
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,FI,8.5,6.31,+2.19
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,PCF,2.5,2.49,+0.01
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,G·s,2.5,3.27,-0.77
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,PP-PS ND-PRG,4.5,6.19,-1.69
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,EELV AEI-RPS,9,13.48,-4.48
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,GÉ MEI-MDP,1,1.82,-0.82
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,LREM-MoDem Agir-MR,22.5,22.41,+0.09
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,UDI,1,2.5,-1.50
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,LR LC,13,8.48,+4.52
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,DLF,4,3.51,+0.49
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,RN,25,23.33,+1.67
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,UPR,1,1.17,-0.17
+0,Européennes 2019,2019-05-26,Elabe,2019-05-24,PA,1.5,2.17,-0.67
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Roussel (PCF),2.5,2.28,+0.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Mélenchon (LFI),17.5,21.95,-4.45
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Hidalgo (PS),2,1.75,+0.25
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Jadot (EELV),4.5,4.63,-0.13
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Macron (LREM),26.5,27.85,-1.35
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Pécresse (LR),9,4.78,+4.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Lassalle (RES),2.5,3.13,-0.63
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Dupont-Aignan (DLF),1.5,2.06,-0.56
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Le Pen (RN),24,23.15,+0.85
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-04-07,Zemmour (REC),8.5,7.07,+1.43
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Roussel (PCF),3,2.28,+0.72
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Mélenchon (LFI),17.5,21.95,-4.45
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Hidalgo (PS),2,1.75,+0.25
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Jadot (EELV),5,4.63,+0.37
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Macron (LREM),26.5,27.85,-1.35
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Pécresse (LR),8.5,4.78,+3.72
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Lassalle (RES),2,3.13,-1.13
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Dupont-Aignan (DLF),2.5,2.06,+0.44
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Le Pen (RN),22.5,23.15,-0.65
+0,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-04-08,Zemmour (REC),9,7.07,+1.93
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Roussel (PCF),3,2.28,+0.72
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Mélenchon (LFI),17,21.95,-4.95
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Hidalgo (PS),2,1.75,+0.25
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Jadot (EELV),5.5,4.63,+0.87
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Macron (LREM),25.5,27.85,-2.35
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Pécresse (LR),9,4.78,+4.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Lassalle (RES),3,3.13,-0.13
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Dupont-Aignan (DLF),2.5,2.06,+0.44
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Le Pen (RN),22,23.15,-1.15
+0,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-04-07,Zemmour (REC),9,7.07,+1.93
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Roussel (PCF),2.5,2.28,+0.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Mélenchon (LFI),18,21.95,-3.95
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Hidalgo (PS),2,1.75,+0.25
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Jadot (EELV),4.5,4.63,-0.13
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Macron (LREM),27,27.85,-0.85
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Pécresse (LR),8,4.78,+3.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Lassalle (RES),2,3.13,-1.13
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Dupont-Aignan (DLF),2,2.06,-0.06
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Le Pen (RN),24,23.15,+0.85
+0,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-04-08,Zemmour (REC),8.5,7.07,+1.43
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Roussel (PCF),2.5,2.28,+0.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Mélenchon (LFI),17.5,21.95,-4.45
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Hidalgo (PS),2,1.75,+0.25
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Jadot (EELV),4,4.63,-0.63
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Macron (LREM),26,27.85,-1.85
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Pécresse (LR),8,4.78,+3.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Lassalle (RES),2.5,3.13,-0.63
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Dupont-Aignan (DLF),2.5,2.06,+0.44
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Le Pen (RN),25,23.15,+1.85
+0,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-04-08,Zemmour (REC),8.5,7.07,+1.43
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Roussel (PCF),3,2.28,+0.72
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Mélenchon (LFI),16,21.95,-5.95
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Hidalgo (PS),2,1.75,+0.25
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Jadot (EELV),5,4.63,+0.37
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Macron (LREM),28,27.85,+0.15
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Pécresse (LR),7,4.78,+2.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Lassalle (RES),3,3.13,-0.13
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Dupont-Aignan (DLF),2,2.06,-0.06
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Le Pen (RN),24,23.15,+0.85
+0,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-04-06,Zemmour (REC),8,7.07,+0.93
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Roussel (PCF),2.5,2.28,+0.22
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Mélenchon (LFI),18,21.95,-3.95
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Hidalgo (PS),2,1.75,+0.25
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Jadot (EELV),4,4.63,-0.63
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Macron (LREM),26,27.85,-1.85
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Pécresse (LR),9.5,4.78,+4.72
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Lassalle (RES),3,3.13,-0.13
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Dupont-Aignan (DLF),3,2.06,+0.94
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Le Pen (RN),21,23.15,-2.15
+0,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-04-08,Zemmour (REC),9.5,7.07,+2.43
+0,Présidentielle 2022 · 2d tour,2022-04-24,Ifop,2022-04-21,Macron (LREM),55.5,58.55,-3.05
+0,Présidentielle 2022 · 2d tour,2022-04-24,Ifop,2022-04-21,Le Pen (RN),44.5,41.45,+3.05
+0,Présidentielle 2022 · 2d tour,2022-04-24,Ipsos,2022-04-22,Macron (LREM),56.75,58.55,-1.80
+0,Présidentielle 2022 · 2d tour,2022-04-24,Ipsos,2022-04-22,Le Pen (RN),43.25,41.45,+1.80
+0,Présidentielle 2022 · 2d tour,2022-04-24,OpinionWay,2022-04-22,Macron (LREM),57,58.55,-1.55
+0,Présidentielle 2022 · 2d tour,2022-04-24,OpinionWay,2022-04-22,Le Pen (RN),43,41.45,+1.55
+0,Présidentielle 2022 · 2d tour,2022-04-24,Harris Interactive,2022-04-22,Macron (LREM),55,58.55,-3.55
+0,Présidentielle 2022 · 2d tour,2022-04-24,Harris Interactive,2022-04-22,Le Pen (RN),45,41.45,+3.55
+0,Présidentielle 2022 · 2d tour,2022-04-24,Elabe,2022-04-22,Macron (LREM),55.5,58.55,-3.05
+0,Présidentielle 2022 · 2d tour,2022-04-24,Elabe,2022-04-22,Le Pen (RN),44.5,41.45,+3.05
+0,Présidentielle 2022 · 2d tour,2022-04-24,Odoxa,2022-04-21,Macron (LREM),53,58.55,-5.55
+0,Présidentielle 2022 · 2d tour,2022-04-24,Odoxa,2022-04-21,Le Pen (RN),47,41.45,+5.55
+0,Présidentielle 2022 · 2d tour,2022-04-24,Cluster17,2022-04-18,Macron (LREM),53.5,58.55,-5.05
+0,Présidentielle 2022 · 2d tour,2022-04-24,Cluster17,2022-04-18,Le Pen (RN),46.5,41.45,+5.05
+0,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-06-09,LO-NPA,1,1.17,-0.17
+0,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-06-09,NUPES,26.5,25.66,+0.84
+0,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-06-09,DVG-FGR,3.5,3.7,-0.20
+0,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-06-09,Ensemble (LREM-MoDem-Horizons-Agir),26,25.75,+0.25
+0,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-06-09,UDC (LR-UDI) + DVD,12,13.62,-1.62
+0,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-06-09,RN,19,18.68,+0.32
+0,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-06-09,REC,5.5,4.24,+1.26
+0,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-06-10,LO-NPA,1,1.17,-0.17
+0,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-06-10,NUPES,27,25.66,+1.34
+0,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-06-10,DVG-FGR,3,3.7,-0.70
+0,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-06-10,Ensemble (LREM-MoDem-Horizons-Agir),28,25.75,+2.25
+0,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-06-10,UDC (LR-UDI) + DVD,11,13.62,-2.62
+0,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-06-10,RN,19,18.68,+0.32
+0,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-06-10,REC,5.5,4.24,+1.26
+0,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-06-08,LO-NPA,1,1.17,-0.17
+0,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-06-08,NUPES,25,25.66,-0.66
+0,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-06-08,DVG-FGR,3,3.7,-0.70
+0,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-06-08,Ensemble (LREM-MoDem-Horizons-Agir),28,25.75,+2.25
+0,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-06-08,UDC (LR-UDI) + DVD,12,13.62,-1.62
+0,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-06-08,RN,18,18.68,-0.68
+0,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-06-08,REC,6,4.24,+1.76
+0,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-06-10,LO-NPA,1,1.17,-0.17
+0,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-06-10,NUPES,26,25.66,+0.34
+0,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-06-10,DVG-FGR,4,3.7,+0.30
+0,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-06-10,Ensemble (LREM-MoDem-Horizons-Agir),26,25.75,+0.25
+0,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-06-10,UDC (LR-UDI) + DVD,11,13.62,-2.62
+0,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-06-10,RN,20,18.68,+1.32
+0,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-06-10,REC,6,4.24,+1.76
+0,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-06-09,LO-NPA,1.5,1.17,+0.33
+0,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-06-09,NUPES,26.5,25.66,+0.84
+0,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-06-09,DVG-FGR,3,3.7,-0.70
+0,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-06-09,Ensemble (LREM-MoDem-Horizons-Agir),27,25.75,+1.25
+0,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-06-09,UDC (LR-UDI) + DVD,12,13.62,-1.62
+0,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-06-09,RN,19.5,18.68,+0.82
+0,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-06-09,REC,4.5,4.24,+0.26
+0,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-06-09,LO-NPA,0.5,1.17,-0.67
+0,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-06-09,NUPES,29.5,25.66,+3.84
+0,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-06-09,DVG-FGR,2.5,3.7,-1.20
+0,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-06-09,Ensemble (LREM-MoDem-Horizons-Agir),26,25.75,+0.25
+0,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-06-09,UDC (LR-UDI) + DVD,10.5,13.62,-3.12
+0,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-06-09,RN,17.5,18.68,-1.18
+0,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-06-09,REC,5.5,4.24,+1.26
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,PCF,2.5,2.36,+0.14
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,LFI,9,9.89,-0.89
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,PS - PP,13,13.83,-0.83
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,EELV,5.5,5.5,+0.00
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,ENS,14.5,14.6,-0.10
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,RES,1.5,2.35,-0.85
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,LR,7,7.25,-0.25
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,RN,33,31.37,+1.63
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,REC,6,5.47,+0.53
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,UPR,1,1.02,-0.02
+0,Européennes 2024,2024-06-09,Ifop,2024-06-07,PA,2.5,2,+0.50
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,PCF,2.5,2.36,+0.14
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,LFI,9.5,9.89,-0.39
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,PS - PP,14.5,13.83,+0.67
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,EELV,5,5.5,-0.50
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,ENS,15,14.6,+0.40
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,RES,1.5,2.35,-0.85
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,LR,7,7.25,-0.25
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,RN,32,31.37,+0.63
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,REC,5.5,5.47,+0.03
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,UPR,0.5,1.02,-0.52
+0,Européennes 2024,2024-06-09,Ipsos,2024-06-07,PA,2.5,2,+0.50
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,PCF,2,2.36,-0.36
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,LFI,8,9.89,-1.89
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,PS - PP,14,13.83,+0.17
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,EELV,5,5.5,-0.50
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,ENS,15,14.6,+0.40
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,RES,1,2.35,-1.35
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,LR,6,7.25,-1.25
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,RN,33,31.37,+1.63
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,REC,6,5.47,+0.53
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,UPR,1,1.02,-0.02
+0,Européennes 2024,2024-06-09,OpinionWay,2024-06-06,PA,3,2,+1.00
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,PCF,3,2.36,+0.64
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,LFI,9.5,9.89,-0.39
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,PS - PP,13,13.83,-0.83
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,EELV,5,5.5,-0.50
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,ENS,14,14.6,-0.60
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,RES,1.5,2.35,-0.85
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,LR,7.5,7.25,+0.25
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,RN,32,31.37,+0.63
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,REC,5,5.47,-0.47
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,UPR,0.5,1.02,-0.52
+0,Européennes 2024,2024-06-09,Harris Interactive,2024-06-07,PA,1.5,2,-0.50
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,PCF,2.5,2.36,+0.14
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,LFI,9.5,9.89,-0.39
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,PS - PP,14.5,13.83,+0.67
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,EELV,5.5,5.5,+0.00
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,ENS,16,14.6,+1.40
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,RES,1.5,2.35,-0.85
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,LR,6,7.25,-1.25
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,RN,32,31.37,+0.63
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,REC,5.5,5.47,+0.03
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,UPR,1,1.02,-0.02
+0,Européennes 2024,2024-06-09,Elabe,2024-06-07,PA,2.5,2,+0.50
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,PCF,2,2.36,-0.36
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,LFI,7,9.89,-2.89
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,PS - PP,14,13.83,+0.17
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,EELV,5,5.5,-0.50
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,ENS,15,14.6,+0.40
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,RES,2,2.35,-0.35
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,LR,7,7.25,-0.25
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,RN,32,31.37,+0.63
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,REC,6,5.47,+0.53
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,UPR,1,1.02,-0.02
+0,Européennes 2024,2024-06-09,Odoxa,2024-06-06,PA,3.5,2,+1.50
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,PCF,2,2.36,-0.36
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,LFI,9,9.89,-0.89
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,PS - PP,13,13.83,-0.83
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,EELV,5,5.5,-0.50
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,ENS,15,14.6,+0.40
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,RES,1.5,2.35,-0.85
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,LR,7,7.25,-0.25
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,RN,31,31.37,-0.37
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,REC,5.5,5.47,+0.03
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,UPR,1,1.02,-0.02
+0,Européennes 2024,2024-06-09,Cluster17,2024-06-07,PA,2.5,2,+0.50
+0,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-28,EXG,1,1.14,-0.14
+0,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-28,NFP,29,28.06,+0.94
+0,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-28,DVG,1,1.53,-0.53
+0,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-28,ENS,20.5,20.04,+0.46
+0,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-28,DVD + LR,7,10.17,-3.17
+0,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-28,RN et alliés,36.5,33.22,+3.28
+0,Législatives 2024 · 1er tour,2024-06-30,Ipsos,2024-06-28,EXG,1,1.14,-0.14
+0,Législatives 2024 · 1er tour,2024-06-30,Ipsos,2024-06-28,NFP,29,28.06,+0.94
+0,Législatives 2024 · 1er tour,2024-06-30,Ipsos,2024-06-28,DVG,1,1.53,-0.53
+0,Législatives 2024 · 1er tour,2024-06-30,Ipsos,2024-06-28,ENS,20,20.04,-0.04
+0,Législatives 2024 · 1er tour,2024-06-30,Ipsos,2024-06-28,DVD + LR,8,10.17,-2.17
+0,Législatives 2024 · 1er tour,2024-06-30,Ipsos,2024-06-28,RN et alliés,36,33.22,+2.78
+0,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-27,EXG,1,1.14,-0.14
+0,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-27,NFP,28,28.06,-0.06
+0,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-27,DVG,1,1.53,-0.53
+0,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-27,ENS,20,20.04,-0.04
+0,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-27,DVD + LR,8,10.17,-2.17
+0,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-27,RN et alliés,37,33.22,+3.78
+0,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-28,EXG,0.5,1.14,-0.64
+0,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-28,NFP,28,28.06,-0.06
+0,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-28,DVG,1,1.53,-0.53
+0,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-28,ENS,20,20.04,-0.04
+0,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-28,DVD + LR,8,10.17,-2.17
+0,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-28,RN et alliés,37,33.22,+3.78
+0,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-27,EXG,1,1.14,-0.14
+0,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-27,NFP,27.5,28.06,-0.56
+0,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-27,DVG,2,1.53,+0.47
+0,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-27,ENS,20,20.04,-0.04
+0,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-27,DVD + LR,9,10.17,-1.17
+0,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-27,RN et alliés,36,33.22,+2.78
+0,Législatives 2024 · 1er tour,2024-06-30,Odoxa,2024-06-27,EXG,1,1.14,-0.14
+0,Législatives 2024 · 1er tour,2024-06-30,Odoxa,2024-06-27,NFP,27.5,28.06,-0.56
+0,Législatives 2024 · 1er tour,2024-06-30,Odoxa,2024-06-27,DVG,1.5,1.53,-0.03
+0,Législatives 2024 · 1er tour,2024-06-30,Odoxa,2024-06-27,ENS,21,20.04,+0.96
+0,Législatives 2024 · 1er tour,2024-06-30,Odoxa,2024-06-27,DVD + LR,9,10.17,-1.17
+0,Législatives 2024 · 1er tour,2024-06-30,Odoxa,2024-06-27,RN et alliés,35,33.22,+1.78
+0,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-27,EXG,1.5,1.14,+0.36
+0,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-27,NFP,29.5,28.06,+1.44
+0,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-27,DVG,1,1.53,-0.53
+0,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-27,ENS,20,20.04,-0.04
+0,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-27,DVD + LR,9,10.17,-1.17
+0,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-27,RN et alliés,35,33.22,+1.78
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,Philippe Poutou (NPA),0.5,1.09,-0.59
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,Jean-Luc Mélenchon (LFI),13,19.58,-6.58
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,Benoît Hamon (PS),10.5,6.36,+4.14
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,Emmanuel Macron (EM),26,24.01,+1.99
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,Jean Lassalle (RES),1,1.21,-0.21
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,François Fillon (LR),18,20.01,-2.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,Nicolas Dupont-Aignan (DLF),5,4.7,+0.30
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-03-24,Marine Le Pen (FN),25,21.3,+3.70
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,Philippe Poutou (NPA),1,1.09,-0.09
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,Jean-Luc Mélenchon (LFI),14,19.58,-5.58
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,Benoît Hamon (PS),12,6.36,+5.64
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,Emmanuel Macron (EM),24,24.01,-0.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,Jean Lassalle (RES),1,1.21,-0.21
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,François Fillon (LR),18,20.01,-2.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,Nicolas Dupont-Aignan (DLF),3.5,4.7,-1.20
+30,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-03-27,Marine Le Pen (FN),25,21.3,+3.70
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,Philippe Poutou (NPA),1,1.09,-0.09
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,Jean-Luc Mélenchon (LFI),14,19.58,-5.58
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,Benoît Hamon (PS),11,6.36,+4.64
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,Emmanuel Macron (EM),24,24.01,-0.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,Jean Lassalle (RES),1,1.21,-0.21
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,François Fillon (LR),19,20.01,-1.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,Nicolas Dupont-Aignan (DLF),4,4.7,-0.70
+30,Présidentielle 2017 · 1er tour,2017-04-23,OpinionWay,2017-03-23,Marine Le Pen (FN),25,21.3,+3.70
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,Philippe Poutou (NPA),0.25,1.09,-0.84
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,Jean-Luc Mélenchon (LFI),13.5,19.58,-6.08
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,Benoît Hamon (PS),12.5,6.36,+6.14
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,Emmanuel Macron (EM),26,24.01,+1.99
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,Jean Lassalle (RES),1,1.21,-0.21
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,François Fillon (LR),18,20.01,-2.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,Nicolas Dupont-Aignan (DLF),4,4.7,-0.70
+30,Présidentielle 2017 · 1er tour,2017-04-23,Harris Interactive,2017-03-22,Marine Le Pen (FN),25,21.3,+3.70
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,Philippe Poutou (NPA),0.5,1.09,-0.59
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,Jean-Luc Mélenchon (LFI),13.5,19.58,-6.08
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,Benoît Hamon (PS),11.5,6.36,+5.14
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,Emmanuel Macron (EM),26,24.01,+1.99
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,Jean Lassalle (RES),1,1.21,-0.21
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,François Fillon (LR),17,20.01,-3.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,Nicolas Dupont-Aignan (DLF),5,4.7,+0.30
+30,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-03-21,Marine Le Pen (FN),24.5,21.3,+3.20
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,Philippe Poutou (NPA),1.5,1.09,+0.41
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,Jean-Luc Mélenchon (LFI),16,19.58,-3.58
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,Benoît Hamon (PS),8,6.36,+1.64
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,Emmanuel Macron (EM),26,24.01,+1.99
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,Jean Lassalle (RES),1,1.21,-0.21
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,François Fillon (LR),17,20.01,-3.01
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,Nicolas Dupont-Aignan (DLF),5,4.7,+0.30
+30,Présidentielle 2017 · 1er tour,2017-04-23,Odoxa,2017-03-30,Marine Le Pen (FN),25,21.3,+3.70
+30,Présidentielle 2017 · 2d tour,2017-05-07,Ifop,2017-04-06,Emmanuel Macron,60,66.1,-6.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,Ifop,2017-04-06,Marine Le Pen,40,33.9,+6.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,Ipsos,2017-04-09,Emmanuel Macron,62,66.1,-4.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,Ipsos,2017-04-09,Marine Le Pen,38,33.9,+4.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,OpinionWay,2017-04-06,Emmanuel Macron,62,66.1,-4.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,OpinionWay,2017-04-06,Marine Le Pen,38,33.9,+4.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,Harris Interactive,2017-04-13,Emmanuel Macron,67,66.1,+0.90
+30,Présidentielle 2017 · 2d tour,2017-05-07,Harris Interactive,2017-04-13,Marine Le Pen,33,33.9,-0.90
+30,Présidentielle 2017 · 2d tour,2017-05-07,Elabe,2017-04-10,Emmanuel Macron,64,66.1,-2.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,Elabe,2017-04-10,Marine Le Pen,36,33.9,+2.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,Odoxa,2017-04-05,Emmanuel Macron,61,66.1,-5.10
+30,Présidentielle 2017 · 2d tour,2017-05-07,Odoxa,2017-04-05,Marine Le Pen,39,33.9,+5.10
+30,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-19,LFI,15,11.02,+3.98
+30,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-19,PCF,1.5,2.72,-1.22
+30,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-19,ECO + PS-PRG,9.5,12.21,-2.71
+30,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-19,LREM-MoDem,31,32.32,-1.32
+30,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-19,LR-UDI,19,18.8,+0.20
+30,Législatives 2017 · 1er tour,2017-06-11,Ifop,2017-05-19,FN,18,13.2,+4.80
+30,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-05-18,LFI,14,11.02,+2.98
+30,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-05-18,PCF,2,2.72,-0.72
+30,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-05-18,ECO + PS-PRG,11,12.21,-1.21
+30,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-05-18,LREM-MoDem,27,32.32,-5.32
+30,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-05-18,LR-UDI,20,18.8,+1.20
+30,Législatives 2017 · 1er tour,2017-06-11,OpinionWay,2017-05-18,FN,20,13.2,+6.80
+30,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-05-11,LFI,14,11.02,+2.98
+30,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-05-11,PCF,2,2.72,-0.72
+30,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-05-11,ECO + PS-PRG,10,12.21,-2.21
+30,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-05-11,LREM-MoDem,29,32.32,-3.32
+30,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-05-11,LR-UDI,20,18.8,+1.20
+30,Législatives 2017 · 1er tour,2017-06-11,Harris Interactive,2017-05-11,FN,20,13.2,+6.80
+30,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-05-24,LFI,12,11.02,+0.98
+30,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-05-24,PCF,2,2.72,-0.72
+30,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-05-24,ECO + PS-PRG,9,12.21,-3.21
+30,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-05-24,LREM-MoDem,33,32.32,+0.68
+30,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-05-24,LR-UDI,20,18.8,+1.20
+30,Législatives 2017 · 1er tour,2017-06-11,Elabe,2017-05-24,FN,19,13.2,+5.80
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,FI,9.5,6.31,+3.19
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,PCF,2.5,2.49,+0.01
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,G·s,3,3.27,-0.27
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,PP-PS ND-PRG,6,6.19,-0.19
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,EELV AEI-RPS,8.5,13.48,-4.98
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,LREM-MoDem Agir-MR,22.5,22.41,+0.09
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,UDI,1.5,2.5,-1.00
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,LR LC,14.5,8.48,+6.02
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,DLF,4.5,3.51,+0.99
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,RN,22,23.33,-1.33
+30,Européennes 2019,2019-05-26,Ifop,2019-04-25,UPR,1.5,1.17,+0.33
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,FI,7.5,6.31,+1.19
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,PCF,2,2.49,-0.49
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,G·s,4,3.27,+0.73
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,PP-PS ND-PRG,6.5,6.19,+0.31
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,EELV AEI-RPS,8.5,13.48,-4.98
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,LREM-MoDem Agir-MR,23,22.41,+0.59
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,UDI,2,2.5,-0.50
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,LR LC,13.5,8.48,+5.02
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,DLF,5,3.51,+1.49
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,RN,22.5,23.33,-0.83
+30,Européennes 2019,2019-05-26,Ipsos,2019-04-22,UPR,1,1.17,-0.17
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,FI,9,6.31,+2.69
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,PCF,3,2.49,+0.51
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,G·s,3,3.27,-0.27
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,PP-PS ND-PRG,6,6.19,-0.19
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,EELV AEI-RPS,7,13.48,-6.48
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,LREM-MoDem Agir-MR,21,22.41,-1.41
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,UDI,3,2.5,+0.50
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,LR LC,14,8.48,+5.52
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,DLF,4,3.51,+0.49
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,RN,24,23.33,+0.67
+30,Européennes 2019,2019-05-26,OpinionWay,2019-04-23,UPR,1,1.17,-0.17
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,FI,9.5,6.31,+3.19
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,PCF,2,2.49,-0.49
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,G·s,3,3.27,-0.27
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,PP-PS ND-PRG,5.5,6.19,-0.69
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,EELV AEI-RPS,9,13.48,-4.48
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,LREM-MoDem Agir-MR,24,22.41,+1.59
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,UDI,2,2.5,-0.50
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,LR LC,15,8.48,+6.52
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,DLF,4,3.51,+0.49
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,RN,21,23.33,-2.33
+30,Européennes 2019,2019-05-26,Harris Interactive,2019-04-27,UPR,1,1.17,-0.17
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,FI,8,6.31,+1.69
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,PCF,1.5,2.49,-0.99
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,G·s,4,3.27,+0.73
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,PP-PS ND-PRG,4,6.19,-2.19
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,EELV AEI-RPS,9,13.48,-4.48
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,LREM-MoDem Agir-MR,22.5,22.41,+0.09
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,UDI,3.5,2.5,+1.00
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,LR LC,15.5,8.48,+7.02
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,DLF,4,3.51,+0.49
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,RN,21.5,23.33,-1.83
+30,Européennes 2019,2019-05-26,Elabe,2019-04-29,UPR,1,1.17,-0.17
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Roussel (PCF),4,2.28,+1.72
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Mélenchon (LFI),10.5,21.95,-11.45
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Hidalgo (PS),2,1.75,+0.25
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Jadot (EELV),6,4.63,+1.37
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Macron (LREM),31,27.85,+3.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Pécresse (LR),12.5,4.78,+7.72
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Lassalle (RES),2,3.13,-1.13
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Dupont-Aignan (DLF),1,2.06,-1.06
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Le Pen (RN),18,23.15,-5.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-03-10,Zemmour (REC),12,7.07,+4.93
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Roussel (PCF),3,2.28,+0.72
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Mélenchon (LFI),12,21.95,-9.95
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Hidalgo (PS),2.5,1.75,+0.75
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Jadot (EELV),6.5,4.63,+1.87
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Macron (LREM),30.5,27.85,+2.65
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Pécresse (LR),11,4.78,+6.22
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Lassalle (RES),1.5,3.13,-1.63
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Dupont-Aignan (DLF),1.5,2.06,-0.56
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Le Pen (RN),16,23.15,-7.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-03-12,Zemmour (REC),13.5,7.07,+6.43
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Roussel (PCF),4,2.28,+1.72
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Mélenchon (LFI),11,21.95,-10.95
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Hidalgo (PS),3,1.75,+1.25
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Jadot (EELV),5,4.63,+0.37
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Macron (LREM),30,27.85,+2.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Pécresse (LR),12,4.78,+7.22
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Lassalle (RES),2,3.13,-1.13
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Dupont-Aignan (DLF),2,2.06,-0.06
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Le Pen (RN),18,23.15,-5.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-03-10,Zemmour (REC),11,7.07,+3.93
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Roussel (PCF),3,2.28,+0.72
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Mélenchon (LFI),13.5,21.95,-8.45
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Hidalgo (PS),2.5,1.75,+0.75
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Jadot (EELV),5,4.63,+0.37
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Macron (LREM),30,27.85,+2.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Pécresse (LR),10.5,4.78,+5.72
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Lassalle (RES),2,3.13,-1.13
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Dupont-Aignan (DLF),1.5,2.06,-0.56
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Le Pen (RN),19.5,23.15,-3.65
+30,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-03-14,Zemmour (REC),11,7.07,+3.93
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Roussel (PCF),3.5,2.28,+1.22
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Mélenchon (LFI),13,21.95,-8.95
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Hidalgo (PS),1.5,1.75,-0.25
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Jadot (EELV),5,4.63,+0.37
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Macron (LREM),33.5,27.85,+5.65
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Pécresse (LR),10.5,4.78,+5.72
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Lassalle (RES),2.5,3.13,-0.63
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Dupont-Aignan (DLF),2.5,2.06,+0.44
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Le Pen (RN),15,23.15,-8.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-03-08,Zemmour (REC),11,7.07,+3.93
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Roussel (PCF),3.5,2.28,+1.22
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Mélenchon (LFI),11.5,21.95,-10.45
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Hidalgo (PS),1.5,1.75,-0.25
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Jadot (EELV),4.5,4.63,-0.13
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Macron (LREM),29.5,27.85,+1.65
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Pécresse (LR),11,4.78,+6.22
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Lassalle (RES),3,3.13,-0.13
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Dupont-Aignan (DLF),2,2.06,-0.06
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Le Pen (RN),19.5,23.15,-3.65
+30,Présidentielle 2022 · 1er tour,2022-04-10,Odoxa,2022-03-11,Zemmour (REC),11,7.07,+3.93
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Roussel (PCF),3.5,2.28,+1.22
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Mélenchon (LFI),13.5,21.95,-8.45
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Hidalgo (PS),1.5,1.75,-0.25
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Jadot (EELV),5.5,4.63,+0.87
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Macron (LREM),28,27.85,+0.15
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Pécresse (LR),13,4.78,+8.22
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Lassalle (RES),2,3.13,-1.13
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Dupont-Aignan (DLF),2,2.06,-0.06
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Le Pen (RN),14.5,23.15,-8.65
+30,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-03-06,Zemmour (REC),14.5,7.07,+7.43
+30,Présidentielle 2022 · 2d tour,2022-04-24,Ifop,2022-03-24,Macron (LREM),54,58.55,-4.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Ifop,2022-03-24,Le Pen (RN),46,41.45,+4.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Ipsos,2022-03-26,Macron (LREM),58,58.55,-0.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Ipsos,2022-03-26,Le Pen (RN),42,41.45,+0.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,OpinionWay,2022-03-24,Macron (LREM),55.5,58.55,-3.05
+30,Présidentielle 2022 · 2d tour,2022-04-24,OpinionWay,2022-03-24,Le Pen (RN),44.5,41.45,+3.05
+30,Présidentielle 2022 · 2d tour,2022-04-24,Harris Interactive,2022-03-28,Macron (LREM),54,58.55,-4.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Harris Interactive,2022-03-28,Le Pen (RN),46,41.45,+4.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Elabe,2022-03-21,Macron (LREM),56,58.55,-2.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Elabe,2022-03-21,Le Pen (RN),44,41.45,+2.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Odoxa,2022-04-06,Macron (LREM),55,58.55,-3.55
+30,Présidentielle 2022 · 2d tour,2022-04-24,Odoxa,2022-04-06,Le Pen (RN),45,41.45,+3.55
+30,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-05-16,LO-NPA,1.5,1.17,+0.33
+30,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-05-16,NUPES,27,25.66,+1.34
+30,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-05-16,Ensemble (LREM-MoDem-Horizons-Agir),26,25.75,+0.25
+30,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-05-16,UDC (LR-UDI) + DVD,11,13.62,-2.62
+30,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-05-16,RN,23,18.68,+4.32
+30,Législatives 2022 · 1er tour,2022-06-12,Ifop,2022-05-16,REC,6,4.24,+1.76
+30,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-05-19,LO-NPA,1,1.17,-0.17
+30,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-05-19,NUPES,27,25.66,+1.34
+30,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-05-19,Ensemble (LREM-MoDem-Horizons-Agir),28,25.75,+2.25
+30,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-05-19,UDC (LR-UDI) + DVD,10,13.62,-3.62
+30,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-05-19,RN,21,18.68,+2.32
+30,Législatives 2022 · 1er tour,2022-06-12,Ipsos,2022-05-19,REC,6,4.24,+1.76
+30,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-05-09,LO-NPA,2,1.17,+0.83
+30,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-05-09,NUPES,23,25.66,-2.66
+30,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-05-09,Ensemble (LREM-MoDem-Horizons-Agir),26,25.75,+0.25
+30,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-05-09,UDC (LR-UDI) + DVD,12,13.62,-1.62
+30,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-05-09,RN,23,18.68,+4.32
+30,Législatives 2022 · 1er tour,2022-06-12,OpinionWay,2022-05-09,REC,5,4.24,+0.76
+30,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-05-16,LO-NPA,3,1.17,+1.83
+30,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-05-16,NUPES,29,25.66,+3.34
+30,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-05-16,Ensemble (LREM-MoDem-Horizons-Agir),26,25.75,+0.25
+30,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-05-16,UDC (LR-UDI) + DVD,10,13.62,-3.62
+30,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-05-16,RN,23,18.68,+4.32
+30,Législatives 2022 · 1er tour,2022-06-12,Harris Interactive,2022-05-16,REC,5,4.24,+0.76
+30,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-05-18,LO-NPA,2,1.17,+0.83
+30,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-05-18,NUPES,27.5,25.66,+1.84
+30,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-05-18,Ensemble (LREM-MoDem-Horizons-Agir),27,25.75,+1.25
+30,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-05-18,UDC (LR-UDI) + DVD,10,13.62,-3.62
+30,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-05-18,RN,21.5,18.68,+2.82
+30,Législatives 2022 · 1er tour,2022-06-12,Elabe,2022-05-18,REC,5,4.24,+0.76
+30,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-05-12,LO-NPA,1,1.17,-0.17
+30,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-05-12,NUPES,31,25.66,+5.34
+30,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-05-12,Ensemble (LREM-MoDem-Horizons-Agir),27,25.75,+1.25
+30,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-05-12,UDC (LR-UDI) + DVD,9.5,13.62,-4.12
+30,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-05-12,RN,19,18.68,+0.32
+30,Législatives 2022 · 1er tour,2022-06-12,Cluster17,2022-05-12,REC,5.5,4.24,+1.26
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,PCF,3,2.36,+0.64
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,LFI,8,9.89,-1.89
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,PS - PP,13.5,13.83,-0.33
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,EELV,6,5.5,+0.50
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,EAC,1,1.28,-0.28
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,ENS,17,14.6,+2.40
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,RES,0.5,2.35,-1.85
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,LR,7.5,7.25,+0.25
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,RN,32,31.37,+0.63
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,REC,6.5,5.47,+1.03
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,UPR,0.5,1.02,-0.52
+30,Européennes 2024,2024-06-09,Ifop,2024-05-10,PA,1,2,-1.00
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,PCF,2,2.36,-0.36
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,LFI,8,9.89,-1.89
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,PS - PP,14.5,13.83,+0.67
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,EELV,6.5,5.5,+1.00
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,EAC,1.5,1.28,+0.22
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,ENS,16,14.6,+1.40
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,RES,1.5,2.35,-0.85
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,LR,7,7.25,-0.25
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,RN,31,31.37,-0.37
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,REC,6,5.47,+0.53
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,UPR,1,1.02,-0.02
+30,Européennes 2024,2024-06-09,Ipsos,2024-05-14,PA,1,2,-1.00
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,PCF,3,2.36,+0.64
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,LFI,6,9.89,-3.89
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,PS - PP,14,13.83,+0.17
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,EELV,6,5.5,+0.50
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,EAC,1,1.28,-0.28
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,ENS,17,14.6,+2.40
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,RES,2,2.35,-0.35
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,LR,6,7.25,-1.25
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,RN,30,31.37,-1.37
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,REC,8,5.47,+2.53
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,UPR,1,1.02,-0.02
+30,Européennes 2024,2024-06-09,OpinionWay,2024-05-07,PA,1,2,-1.00
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,PCF,3,2.36,+0.64
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,LFI,8,9.89,-1.89
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,PS - PP,14,13.83,+0.17
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,EELV,5.5,5.5,+0.00
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,EAC,1,1.28,-0.28
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,ENS,15,14.6,+0.40
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,RES,2,2.35,-0.35
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,LR,7,7.25,-0.25
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,RN,31.5,31.37,+0.13
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,REC,5,5.47,-0.47
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,UPR,1,1.02,-0.02
+30,Européennes 2024,2024-06-09,Harris Interactive,2024-05-13,PA,1,2,-1.00
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,PCF,1.5,2.36,-0.86
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,LFI,7.5,9.89,-2.39
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,PS - PP,13,13.83,-0.83
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,EELV,7.5,5.5,+2.00
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,EAC,1,1.28,-0.28
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,ENS,15.5,14.6,+0.90
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,RES,1,2.35,-1.35
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,LR,7.5,7.25,+0.25
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,RN,32,31.37,+0.63
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,REC,5.5,5.47,+0.03
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,UPR,1,1.02,-0.02
+30,Européennes 2024,2024-06-09,Elabe,2024-05-17,PA,1,2,-1.00
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,PCF,2.5,2.36,+0.14
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,LFI,7,9.89,-2.89
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,PS - PP,13.5,13.83,-0.33
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,EELV,6,5.5,+0.50
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,EAC,0.5,1.28,-0.78
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,ENS,15,14.6,+0.40
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,RES,1,2.35,-1.35
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,LR,7,7.25,-0.25
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,RN,34,31.37,+2.63
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,REC,4,5.47,-1.47
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,UPR,0.5,1.02,-0.52
+30,Européennes 2024,2024-06-09,Odoxa,2024-05-24,PA,1.5,2,-0.50
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,PCF,2,2.36,-0.36
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,LFI,8.5,9.89,-1.39
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,PS - PP,13,13.83,-0.83
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,EELV,6,5.5,+0.50
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,EAC,1,1.28,-0.28
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,ENS,15.5,14.6,+0.90
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,RES,1.5,2.35,-0.85
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,LR,6.5,7.25,-0.75
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,RN,29.5,31.37,-1.87
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,REC,6,5.47,+0.53
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,UPR,1.5,1.02,+0.48
+30,Européennes 2024,2024-06-09,Cluster17,2024-05-09,PA,2,2,+0.00
+30,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-11,EXG,1,1.14,-0.14
+30,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-11,NFP,25,28.06,-3.06
+30,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-11,DVG,5,1.53,+3.47
+30,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-11,ENS,18,20.04,-2.04
+30,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-11,DVD + LR + LR (Ciotti),10.5,14.13,-3.63
+30,Législatives 2024 · 1er tour,2024-06-30,Ifop,2024-06-11,RN,35,29.26,+5.74
+30,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-10,EXG,1,1.14,-0.14
+30,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-10,NFP,23,28.06,-5.06
+30,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-10,DVG,4,1.53,+2.47
+30,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-10,ENS,18,20.04,-2.04
+30,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-10,DVD + LR + LR (Ciotti),10,14.13,-4.13
+30,Législatives 2024 · 1er tour,2024-06-30,OpinionWay,2024-06-10,RN,33,29.26,+3.74
+30,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-10,EXG,3,1.14,+1.86
+30,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-10,NFP,22,28.06,-6.06
+30,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-10,DVG,9,1.53,+7.47
+30,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-10,ENS,19,20.04,-1.04
+30,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-10,DVD + LR + LR (Ciotti),9,14.13,-5.13
+30,Législatives 2024 · 1er tour,2024-06-30,Harris Interactive,2024-06-10,RN,34,29.26,+4.74
+30,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-12,EXG,1,1.14,-0.14
+30,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-12,NFP,28,28.06,-0.06
+30,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-12,DVG,5,1.53,+3.47
+30,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-12,ENS,18,20.04,-2.04
+30,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-12,DVD + LR + LR (Ciotti),8.5,14.13,-5.63
+30,Législatives 2024 · 1er tour,2024-06-30,Elabe,2024-06-12,RN,31,29.26,+1.74
+30,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-13,EXG,1,1.14,-0.14
+30,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-13,NFP,28.5,28.06,+0.44
+30,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-13,DVG,3,1.53,+1.47
+30,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-13,ENS,18,20.04,-2.04
+30,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-13,DVD + LR + LR (Ciotti),9.5,14.13,-4.63
+30,Législatives 2024 · 1er tour,2024-06-30,Cluster17,2024-06-13,RN,29.5,29.26,+0.24
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-01-29,Philippe Poutou (NPA),0.5,1.09,-0.59
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-01-29,Jean-Luc Mélenchon (LFI),9,19.58,-10.58
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-01-29,Benoît Hamon (PS),18,6.36,+11.64
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-01-29,Emmanuel Macron (EM),20,24.01,-4.01
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-01-29,François Fillon (LR),21,20.01,+0.99
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-01-29,Nicolas Dupont-Aignan (DLF),2,4.7,-2.70
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ifop,2017-01-29,Marine Le Pen (FN),24,21.3,+2.70
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-01-20,Philippe Poutou (NPA),1,1.09,-0.09
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-01-20,Jean-Luc Mélenchon (LFI),13,19.58,-6.58
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-01-20,Benoît Hamon (PS),8,6.36,+1.64
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-01-20,Emmanuel Macron (EM),20,24.01,-4.01
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-01-20,François Fillon (LR),26,20.01,+5.99
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-01-20,Nicolas Dupont-Aignan (DLF),2,4.7,-2.70
+90,Présidentielle 2017 · 1er tour,2017-04-23,Ipsos,2017-01-20,Marine Le Pen (FN),27,21.3,+5.70
+90,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-01-31,Philippe Poutou (NPA),0.5,1.09,-0.59
+90,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-01-31,Jean-Luc Mélenchon (LFI),10,19.58,-9.58
+90,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-01-31,Benoît Hamon (PS),17,6.36,+10.64
+90,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-01-31,Emmanuel Macron (EM),23,24.01,-1.01
+90,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-01-31,François Fillon (LR),20,20.01,-0.01
+90,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-01-31,Nicolas Dupont-Aignan (DLF),1,4.7,-3.70
+90,Présidentielle 2017 · 1er tour,2017-04-23,Elabe,2017-01-31,Marine Le Pen (FN),27,21.3,+5.70
+90,Présidentielle 2017 · 2d tour,2017-05-07,Ifop,2017-02-06,Emmanuel Macron,63,66.1,-3.10
+90,Présidentielle 2017 · 2d tour,2017-05-07,Ifop,2017-02-06,Marine Le Pen,37,33.9,+3.10
+90,Présidentielle 2017 · 2d tour,2017-05-07,OpinionWay,2017-02-09,Emmanuel Macron,65,66.1,-1.10
+90,Présidentielle 2017 · 2d tour,2017-05-07,OpinionWay,2017-02-09,Marine Le Pen,35,33.9,+1.10
+90,Présidentielle 2017 · 2d tour,2017-05-07,Elabe,2017-02-08,Emmanuel Macron,63,66.1,-3.10
+90,Présidentielle 2017 · 2d tour,2017-05-07,Elabe,2017-02-08,Marine Le Pen,37,33.9,+3.10
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,FI,7,6.31,+0.69
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,PCF,2.5,2.49,+0.01
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,G·s,2,3.27,-1.27
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,PP-PS ND-PRG,5,6.19,-1.19
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,EELV AEI-RPS,7.5,13.48,-5.98
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,LREM-MoDem Agir-MR,24,22.41,+1.59
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,UDI,3,2.5,+0.50
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,LR LC,13,8.48,+4.52
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,DLF,5.5,3.51,+1.99
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,RN,22,23.33,-1.33
+90,Européennes 2019,2019-05-26,Ifop,2019-03-07,UPR,1.5,1.17,+0.33
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,FI,8.5,6.31,+2.19
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,PCF,2,2.49,-0.49
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,G·s,5.5,3.27,+2.23
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,PP-PS ND-PRG,5.5,6.19,-0.69
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,EELV AEI-RPS,8.5,13.48,-4.98
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,LREM-MoDem Agir-MR,23,22.41,+0.59
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,UDI,2.5,2.5,+0.00
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,LR LC,12,8.48,+3.52
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,DLF,6.5,3.51,+2.99
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,RN,21,23.33,-2.33
+90,Européennes 2019,2019-05-26,Ipsos,2019-02-21,UPR,0.5,1.17,-0.67
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,FI,7,6.31,+0.69
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,PCF,2,2.49,-0.49
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,G·s,4,3.27,+0.73
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,PP-PS ND-PRG,6,6.19,-0.19
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,EELV AEI-RPS,6,13.48,-7.48
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,LREM-MoDem Agir-MR,22,22.41,-0.41
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,UDI,2,2.5,-0.50
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,LR LC,14,8.48,+5.52
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,DLF,5,3.51,+1.49
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,RN,22,23.33,-1.33
+90,Européennes 2019,2019-05-26,OpinionWay,2019-02-27,UPR,1,1.17,-0.17
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,FI,8,6.31,+1.69
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,PCF,2,2.49,-0.49
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,G·s,4,3.27,+0.73
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,PP-PS ND-PRG,6,6.19,-0.19
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,EELV AEI-RPS,8,13.48,-5.48
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,LREM-MoDem Agir-MR,22,22.41,-0.41
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,UDI,2,2.5,-0.50
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,LR LC,12,8.48,+3.52
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,DLF,6,3.51,+2.49
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,RN,20,23.33,-3.33
+90,Européennes 2019,2019-05-26,Harris Interactive,2019-02-23,UPR,1,1.17,-0.17
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,FI,8,6.31,+1.69
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,PCF,2.5,2.49,+0.01
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,G·s,3,3.27,-0.27
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,PP-PS ND-PRG,5,6.19,-1.19
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,EELV AEI-RPS,10,13.48,-3.48
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,LREM-MoDem Agir-MR,22,22.41,-0.41
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,UDI,2,2.5,-0.50
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,LR LC,13,8.48,+4.52
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,DLF,5.5,3.51,+1.99
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,RN,22,23.33,-1.33
+90,Européennes 2019,2019-05-26,Elabe,2019-02-27,UPR,1,1.17,-0.17
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Roussel (PCF),2.5,2.28,+0.22
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Mélenchon (LFI),9.5,21.95,-12.45
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Hidalgo (PS),4,1.75,+2.25
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Jadot (EELV),6,4.63,+1.37
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Macron (LREM),27,27.85,-0.85
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Pécresse (LR),15.5,4.78,+10.72
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Lassalle (RES),1,3.13,-2.13
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Dupont-Aignan (DLF),2,2.06,-0.06
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Le Pen (RN),17.5,23.15,-5.65
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ifop,2022-01-10,Zemmour (REC),12.5,7.07,+5.43
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Roussel (PCF),2,2.28,-0.28
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Mélenchon (LFI),9,21.95,-12.95
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Hidalgo (PS),4.5,1.75,+2.75
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Jadot (EELV),8,4.63,+3.37
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Macron (LREM),26,27.85,-1.85
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Pécresse (LR),16,4.78,+11.22
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Lassalle (RES),1,3.13,-2.13
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Dupont-Aignan (DLF),1.5,2.06,-0.56
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Le Pen (RN),17,23.15,-6.15
+90,Présidentielle 2022 · 1er tour,2022-04-10,Ipsos,2022-01-06,Zemmour (REC),12,7.07,+4.93
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Roussel (PCF),2,2.28,-0.28
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Mélenchon (LFI),9,21.95,-12.95
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Hidalgo (PS),4,1.75,+2.25
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Jadot (EELV),8,4.63,+3.37
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Macron (LREM),25,27.85,-2.85
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Pécresse (LR),16,4.78,+11.22
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Lassalle (RES),2,3.13,-1.13
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Dupont-Aignan (DLF),2,2.06,-0.06
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Le Pen (RN),17,23.15,-6.15
+90,Présidentielle 2022 · 1er tour,2022-04-10,OpinionWay,2022-01-11,Zemmour (REC),12,7.07,+4.93
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Roussel (PCF),2,2.28,-0.28
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Mélenchon (LFI),11,21.95,-10.95
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Hidalgo (PS),4,1.75,+2.25
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Jadot (EELV),7,4.63,+2.37
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Macron (LREM),25,27.85,-2.85
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Pécresse (LR),16,4.78,+11.22
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Lassalle (RES),0.25,3.13,-2.88
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Dupont-Aignan (DLF),2,2.06,-0.06
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Le Pen (RN),16,23.15,-7.15
+90,Présidentielle 2022 · 1er tour,2022-04-10,Harris Interactive,2022-01-10,Zemmour (REC),15,7.07,+7.93
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Roussel (PCF),1.5,2.28,-0.78
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Mélenchon (LFI),9.5,21.95,-12.45
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Hidalgo (PS),3.5,1.75,+1.75
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Jadot (EELV),7,4.63,+2.37
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Macron (LREM),24,27.85,-3.85
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Pécresse (LR),17,4.78,+12.22
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Lassalle (RES),2,3.13,-1.13
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Dupont-Aignan (DLF),1.5,2.06,-0.56
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Le Pen (RN),17,23.15,-6.15
+90,Présidentielle 2022 · 1er tour,2022-04-10,Elabe,2022-01-11,Zemmour (REC),13,7.07,+5.93
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Roussel (PCF),2,2.28,-0.28
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Mélenchon (LFI),12.5,21.95,-9.45
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Hidalgo (PS),2,1.75,+0.25
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Jadot (EELV),4.5,4.63,-0.13
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Macron (LREM),23,27.85,-4.85
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Pécresse (LR),14,4.78,+9.22
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Lassalle (RES),1,3.13,-2.13
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Dupont-Aignan (DLF),2,2.06,-0.06
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Le Pen (RN),15,23.15,-8.15
+90,Présidentielle 2022 · 1er tour,2022-04-10,Cluster17,2022-01-08,Zemmour (REC),13.5,7.07,+6.43
+90,Présidentielle 2022 · 2d tour,2022-04-24,Ifop,2022-01-24,Macron (LREM),56,58.55,-2.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,Ifop,2022-01-24,Le Pen (RN),44,41.45,+2.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,Ipsos,2022-01-17,Macron (LREM),57,58.55,-1.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,Ipsos,2022-01-17,Le Pen (RN),43,41.45,+1.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,OpinionWay,2022-01-24,Macron (LREM),57,58.55,-1.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,OpinionWay,2022-01-24,Le Pen (RN),43,41.45,+1.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,Harris Interactive,2022-01-24,Macron (LREM),54,58.55,-4.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,Harris Interactive,2022-01-24,Le Pen (RN),46,41.45,+4.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,Elabe,2022-01-26,Macron (LREM),57,58.55,-1.55
+90,Présidentielle 2022 · 2d tour,2022-04-24,Elabe,2022-01-26,Le Pen (RN),43,41.45,+1.55
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,PCF,3,2.36,+0.64
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,LFI,6,9.89,-3.89
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,PS - PP,11,13.83,-2.83
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,EELV,7,5.5,+1.50
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,ENS,21,14.6,+6.40
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,LR,7,7.25,-0.25
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,RN,30,31.37,-1.37
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,REC,6,5.47,+0.53
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,UPR,0.5,1.02,-0.52
+90,Européennes 2024,2024-06-09,Ifop,2024-03-20,PA,1.5,2,-0.50
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,PCF,3.5,2.36,+1.14
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,LFI,7,9.89,-2.89
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,PS - PP,11.5,13.83,-2.33
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,EELV,8.5,5.5,+3.00
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,ENS,18,14.6,+3.40
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,LR,7,7.25,-0.25
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,RN,31,31.37,-0.37
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,REC,5,5.47,-0.47
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,UPR,0.5,1.02,-0.52
+90,Européennes 2024,2024-06-09,Ipsos,2024-03-06,PA,1.5,2,-0.50
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,PCF,2,2.36,-0.36
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,LFI,6,9.89,-3.89
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,PS - PP,11,13.83,-2.83
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,EELV,8,5.5,+2.50
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,ENS,20,14.6,+5.40
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,LR,8,7.25,+0.75
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,RN,27,31.37,-4.37
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,REC,6,5.47,+0.53
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,UPR,1,1.02,-0.02
+90,Européennes 2024,2024-06-09,OpinionWay,2024-03-14,PA,1,2,-1.00
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,PCF,2,2.36,-0.36
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,LFI,8,9.89,-1.89
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,PS - PP,13,13.83,-0.83
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,EELV,7,5.5,+1.50
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,ENS,18,14.6,+3.40
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,LR,7,7.25,-0.25
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,RN,30,31.37,-1.37
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,REC,6,5.47,+0.53
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,UPR,0.5,1.02,-0.52
+90,Européennes 2024,2024-06-09,Harris Interactive,2024-03-18,PA,1,2,-1.00
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,PCF,3,2.36,+0.64
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,LFI,7.5,9.89,-2.39
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,PS - PP,8.5,13.83,-5.33
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,EELV,9.5,5.5,+4.00
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,ENS,17,14.6,+2.40
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,LR,7,7.25,-0.25
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,RN,29.5,31.37,-1.87
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,REC,4.5,5.47,-0.97
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,UPR,1,1.02,-0.02
+90,Européennes 2024,2024-06-09,Elabe,2024-03-07,PA,1.5,2,-0.50
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,PCF,3,2.36,+0.64
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,LFI,8,9.89,-1.89
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,PS - PP,10,13.83,-3.83
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,EELV,8,5.5,+2.50
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,ENS,17,14.6,+2.40
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,LR,7,7.25,-0.25
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,RN,29,31.37,-2.37
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,REC,6,5.47,+0.53
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,UPR,1,1.02,-0.02
+90,Européennes 2024,2024-06-09,Cluster17,2024-03-09,PA,1,2,-1.00

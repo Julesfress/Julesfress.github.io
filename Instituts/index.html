@@ -24,7 +24,7 @@
   <main class="shell shell--wide">
     <div class="doc-head">
       <h1>Les instituts face aux urnes</h1>
-      <p class="tagline">Ifop, Ipsos, OpinionWay, Harris Interactive, Elabe, Odoxa et Cluster17 : à chaque scrutin national depuis 2017, leur dernier sondage confronté au résultat.</p>
+      <p class="tagline">Ifop, Ipsos, OpinionWay, Harris Interactive, Elabe, Odoxa et Cluster17 : à chaque scrutin national depuis 2017, leur dernier sondage, puis ceux d'un et de trois mois avant le vote, confrontés au résultat.</p>
     </div>
 
     <div class="stack">
@@ -33,13 +33,13 @@
         <ol class="steps">
           <li>
             <h3>Le sondage retenu</h3>
-            <p>Pour l'institut <var>i</var> et le scrutin <var>s</var> : son dernier
-            sondage, celui dont le terrain s'achève le plus tard, au plus 14 jours avant le
-            vote (plusieurs sondages achevés le même jour sont moyennés). On note
-            <var>x</var><sub><var>i</var>,<var>c</var></sub> l'intention de vote qu'il donne
-            au candidat <var>c</var>, en % des suffrages exprimés.</p>
-            <p>Les sondages antérieurs sont ignorés : l'opinion bouge en fin de campagne,
-            et les moyenner pénaliserait les instituts qui publient souvent.</p>
+            <p>Pour l'institut <var>i</var>, le scrutin <var>s</var> et l'horizon
+            <var>h</var> : le sondage dont la fin de terrain est la plus proche de
+            J&nbsp;−&nbsp;<var>h</var>, à 14 jours près ; pour <var>h</var> = 0, le dernier
+            avant le vote. Plusieurs sondages achevés le même jour sont moyennés ; parmi
+            plusieurs hypothèses, on retient celle du scrutin réel.</p>
+            <p>On note <var>x</var><sub><var>i</var>,<var>c</var></sub> l'intention de vote
+            qu'il donne au candidat <var>c</var>, en % des suffrages exprimés.</p>
           </li>
           <li>
             <h3>L'erreur</h3>
@@ -58,9 +58,7 @@
             </math>
             <p>où <var>r</var><sub><var>c</var></sub> est le résultat officiel, et la somme
             porte sur les <var>n</var> candidats ou listes ayant obtenu au moins 1 % des
-            exprimés, publiés par tous les instituts du scrutin. Le carré pèse plus sur une
-            grosse erreur que sur plusieurs petites. Si un institut agrège deux colonnes
-            (RN et LR-Ciotti en 2024), tous sont évalués sur l'agrégat.</p>
+            exprimés, publiés par tous les instituts du scrutin.</p>
           </li>
           <li>
             <h3>La référence et le score</h3>
@@ -82,16 +80,13 @@
               <munder><mo>∑</mo><mi>s</mi></munder>
               <mrow><mo>(</mo><msub><mi>E</mi><mrow><mi>i</mi><mo>,</mo><mi>s</mi></mrow></msub><mo>−</mo><msubsup><mi>E</mi><mi>s</mi><mtext>réf</mtext></msubsup><mo>)</mo></mrow>
             </math>
-            <p>Négatif, l'institut se trompe moins que ses concurrents. La référence
-            neutralise la difficulté propre à chaque scrutin et rend comparables des
-            instituts qui n'ont pas couvert les mêmes (Cluster17 n'existait pas en 2017).</p>
           </li>
         </ol>
 
         <!-- exemple : écrit par instituts.py, ne pas modifier à la main -->
         <div class="calc">
           <h3>Exemple&nbsp;: Ipsos, présidentielle 2022, 1<sup>er</sup> tour</h3>
-          <p class="calc-lead">Son dernier sondage s'achève le 8 avril 2022, 2 jours avant le vote. Écart = sondage − résultat, en points&nbsp;: négatif, le candidat était sous-estimé. Arthaud (LO) et Poutou (NPA), sous 1&nbsp;% des voix, ne comptent pas.</p>
+          <p class="calc-lead">Son dernier sondage s'achève le 8 avril 2022, 2 jours avant le vote. Écart = sondage − résultat, en points.</p>
           <div class="calc-table">
             <table>
               <thead><tr><th scope="col">Candidat</th><th scope="col">Sondage</th><th scope="col">Résultat</th><th scope="col">Écart</th><th scope="col">Écart²</th></tr></thead>
@@ -111,34 +106,43 @@
             </table>
           </div>
           <ol class="calc-steps">
-            <li><strong>Erreur.</strong> <span class="eq">E = √4,18 = 2,04</span> points. À eux deux, Mélenchon et Pécresse font 80&nbsp;% de la somme des carrés&nbsp;: élever au carré fait peser les grosses erreurs.</li>
+            <li><strong>Erreur.</strong> <span class="eq">E = √4,18 = 2,04</span> points.</li>
             <li><strong>Référence.</strong> Les 7 instituts présents se trompent en moyenne de 2,08 points sur ce scrutin. Écart d'Ipsos&nbsp;: <span class="eq">2,04 − 2,08 = −0,04</span>.</li>
-            <li><strong>Score.</strong> Même calcul sur ses 9 scrutins, puis moyenne&nbsp;: erreur <span class="eq">1,67</span>, référence <span class="eq">1,97</span>, score <span class="eq">−0,30</span>. C'est la ligne d'Ipsos du premier graphique.</li>
+            <li><strong>Score.</strong> Même calcul sur ses 9 scrutins, puis moyenne&nbsp;: erreur <span class="eq">1,67</span>, référence <span class="eq">1,97</span>, score <span class="eq">−0,30</span>.</li>
           </ol>
         </div>
         <!-- /exemple -->
       </section>
 
       <a class="plate" href="instituts_classement.png" target="_blank" rel="noopener">
-        <img src="instituts_classement.png" alt="Classement des sept instituts selon leur score : pour chacun, un petit cercle par scrutin donne l'écart entre son erreur et l'erreur moyenne des instituts, et un gros point, bleu ou orange, leur moyenne.">
+        <img src="instituts_classement.png" alt="Classement des instituts selon leur score, d'après leur dernier sondage : pour chacun, un petit cercle par scrutin donne l'écart entre son erreur et la référence du scrutin, un gros point leur moyenne, et à droite la soustraction erreur moins référence qui donne le score.">
       </a>
-
-      <p class="note">Chaque petit cercle est l'écart d'un scrutin, le gros point leur moyenne :
-      le score. À droite, le même score posé en soustraction. Plus les cercles sont dispersés,
-      moins le score est solide : un seul scrutin manqué peut suffire à faire passer un
-      institut d'un côté à l'autre de la référence.</p>
 
       <a class="plate" href="instituts_scrutins.png" target="_blank" rel="noopener">
-        <img src="instituts_scrutins.png" alt="Tableau de l'erreur, en points, du dernier sondage de chaque institut à chaque scrutin national, colorée en bleu quand elle est inférieure à la moyenne des instituts sur ce scrutin et en orange quand elle est supérieure. La dernière ligne donne l'erreur moyenne de chaque scrutin." loading="lazy">
+        <img src="instituts_scrutins.png" alt="Tableau de l'erreur, en points, du dernier sondage de chaque institut à chaque scrutin national, en bleu quand elle est inférieure à la référence du scrutin et en orange quand elle est supérieure ; la dernière ligne donne la référence." loading="lazy">
       </a>
 
-      <p class="note">Dans chaque case, l'erreur <var>E</var><sub><var>i</var>,<var>s</var></sub>
-      en points ; sa couleur la compare à la référence du scrutin, en dernière ligne. Cette
-      erreur que tous partagent pèse souvent plus lourd que ce qui les sépare.</p>
+      <h2 class="part">Plus tôt dans la campagne</h2>
+
+      <a class="plate" href="instituts_classement_1mois.png" target="_blank" rel="noopener">
+        <img src="instituts_classement_1mois.png" alt="Le même classement avec le sondage le plus proche d'un mois avant le vote." loading="lazy">
+      </a>
+
+      <a class="plate" href="instituts_scrutins_1mois.png" target="_blank" rel="noopener">
+        <img src="instituts_scrutins_1mois.png" alt="Le même tableau, scrutin par scrutin, un mois avant le vote." loading="lazy">
+      </a>
+
+      <a class="plate" href="instituts_classement_3mois.png" target="_blank" rel="noopener">
+        <img src="instituts_classement_3mois.png" alt="Le même classement avec le sondage le plus proche de trois mois avant le vote." loading="lazy">
+      </a>
+
+      <a class="plate" href="instituts_scrutins_3mois.png" target="_blank" rel="noopener">
+        <img src="instituts_scrutins_3mois.png" alt="Le même tableau, scrutin par scrutin, trois mois avant le vote." loading="lazy">
+      </a>
 
       <p class="note">Source : les listes de sondages de Wikipédia et leur ligne « Résultats »
       (résultats officiels). Le détail des sondages retenus, candidat par candidat :
-      <a href="https://github.com/Julesfress/Julesfress.github.io/blob/main/Instituts/derniers_sondages.csv" target="_blank" rel="noopener">derniers_sondages.csv</a>.
+      <a href="https://github.com/Julesfress/Julesfress.github.io/blob/main/Instituts/sondages_retenus.csv" target="_blank" rel="noopener">sondages_retenus.csv</a>.
       Le code : <a href="https://github.com/Julesfress/Julesfress.github.io/blob/main/Instituts/instituts.py" target="_blank" rel="noopener">instituts.py</a>.</p>
     </div>
   </main>

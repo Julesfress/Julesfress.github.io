@@ -70,22 +70,30 @@ si elles n'y sont pas ; `python instituts.py --refresh` les retélécharge toute
 
 Après un nouveau scrutin national, une fois la ligne « Résultats » ajoutée sur
 Wikipédia : ajouter une entrée à `SCRUTINS` dans `instituts.py` (page, jour du
-vote, titre de section qui mène au tableau), relancer, committer les PNG et
-`derniers_sondages.csv`.
+vote, titre de section qui mène aux tableaux), relancer, committer les PNG,
+`sondages_retenus.csv` et `index.html`. Pour des législatives anticipées, le
+paramètre `depuis` écarte les sondages d'avant la convocation (cf. 2024).
+
+Les sondages à un et trois mois (`HORIZONS`) sont souvent dans d'autres
+tableaux que celui des résultats (un par mois, avec d'autres candidats) : leurs
+colonnes sont rattachées à celles du résultat par le nom de famille
+(présidentielles) ou par les sigles (listes), et les candidats qui ne se sont
+pas présentés (Bayrou 2017, Taubira 2022) sont ignorés.
 
 À surveiller à chaque exécution :
 
 - « ⚠ unités retirées faute d'être publiées par tous » : un candidat qu'un des
   instituts ne publie pas sort de la comparaison pour tous. Sans conséquence
   pour un « divers centre » à 1 %, mais si c'est un candidat important, c'est
-  sans doute la colonne de cet institut qui est mal lue.
-- « sans sondage dans les 14 derniers jours » : un institut absent d'un
-  scrutin. Normal pour Cluster17 avant 2022 ; ailleurs, vérifier que son nom
-  est reconnu (constante `INSTITUTS`, comparée sans accents ni espaces).
+  sans doute une colonne mal rattachée.
+- un institut absent d'un scrutin où il a pourtant publié : vérifier que son
+  nom est reconnu (constante `INSTITUTS`, comparée sans accents ni espaces) et
+  que la date de ses sondages se lit (le mois ou l'année est parfois dans la
+  légende du tableau).
 
 La méthode est résumée en trois paragraphes dans `Instituts/index.html`, qui
-citent les deux réglages du script (`JOURS_MAX` = deux semaines,
-`SEUIL_VOIX` = 1 %) : si l'un change, changer le texte.
+citent les réglages du script (`HORIZONS` = 0, 30 et 90 jours, `JOURS_MAX` =
+14 jours, `SEUIL_VOIX` = 1 %) : si l'un change, changer le texte.
 
 Exception à la règle 4 ci-dessus : l'exemple de calcul de la page (constante
 `EXEMPLE`, Ipsos à la présidentielle 2022) est plein de chiffres, mais c'est le
