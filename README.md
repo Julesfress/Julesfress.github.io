@@ -86,3 +86,9 @@ vote, titre de section qui mène au tableau), relancer, committer les PNG et
 La méthode est résumée en trois paragraphes dans `Instituts/index.html`, qui
 citent les deux réglages du script (`JOURS_MAX` = deux semaines,
 `SEUIL_VOIX` = 1 %) : si l'un change, changer le texte.
+
+Exception à la règle 4 ci-dessus : l'exemple de calcul de la page (constante
+`EXEMPLE`, Ipsos à la présidentielle 2022) est plein de chiffres, mais c'est le
+script qui l'écrit dans `Instituts/index.html`, entre les marqueurs
+`<!-- exemple : … -->` et `<!-- /exemple -->`, à chaque exécution. Ne pas le
+retoucher à la main, et committer `index.html` avec les PNG quand il change.

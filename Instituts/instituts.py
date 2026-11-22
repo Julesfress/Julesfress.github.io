@@ -330,6 +330,7 @@ class Confrontation:
     unites: list[Unite]
     sondages: dict[str, dict]   # institut -> {"fin": date, "lignes": n, "valeurs": [..]}
     erreurs: dict[str, float]   # institut -> erreur quadratique moyenne, en points
+    sous_seuil: list[str]       # candidats écartés, sous SEUIL_VOIX % des suffrages
 
     @property
     def erreur_moyenne(self) -> float:
@@ -422,11 +423,13 @@ def confronter(scrutin: Scrutin, g: list[list[Cellule]]) -> Confrontation:
                 return cell.texte
         return " + ".join(libelles(c)[-1] for c in cols)
 
-    unites = []
+    unites, sous_seuil = [], []
     for cols in sorted(groupes.values()):
         r = _somme(resultat, cols)
         if r is not None and r >= SEUIL_VOIX:
             unites.append(Unite(libelle(cols), tuple(cols), r))
+        elif r is not None:
+            sous_seuil.append(libelle(cols))
 
     sondages = {}
     for inst, (fin, lignes) in derniers.items():
@@ -451,19 +454,33 @@ def confronter(scrutin: Scrutin, g: list[list[Cellule]]) -> Confrontation:
     erreurs = {inst: math.sqrt(np.mean([(v - u.resultat) ** 2
                                         for v, u in zip(s["valeurs"], unites)]))
                for inst, s in sondages.items()}
-    return Confrontation(scrutin, unites, sondages, erreurs)
+    return Confrontation(scrutin, unites, sondages, erreurs, sous_seuil)
 
 
 def scores(confs: list[Confrontation]) -> dict[str, dict]:
-    """Écart de chaque institut à l'erreur moyenne de chaque scrutin, et leur
-    moyenne : le score final (négatif = moins d'erreur que la moyenne)."""
+    """Écart de chaque institut à la référence de chaque scrutin (l'erreur
+    moyenne des instituts présents), et leur moyenne : le score (négatif =
+    moins d'erreur que la référence). Le score est aussi, à l'arrondi près,
+    l'erreur moyenne de l'institut moins la moyenne des références des mêmes
+    scrutins : les deux sont gardées pour être affichées côte à côte."""
     out = {}
     for nom, _ in INSTITUTS:
-        ecarts = [c.erreurs[nom] - c.erreur_moyenne for c in confs if nom in c.erreurs]
-        if ecarts:
+        couverts = [c for c in confs if nom in c.erreurs]
+        if couverts:
+            ecarts = [c.erreurs[nom] - c.erreur_moyenne for c in couverts]
             out[nom] = {"ecarts": ecarts, "score": float(np.mean(ecarts)),
-                        "n": len(ecarts)}
+                        "n": len(ecarts),
+                        "erreur": float(np.mean([c.erreurs[nom] for c in couverts])),
+                        "reference": float(np.mean([c.erreur_moyenne for c in couverts])),
+                        "scrutins": [c.scrutin for c in couverts]}
     return out
+
+
+def ecart_affiche(a: float, b: float) -> float:
+    """a − b tel qu'un lecteur le retrouve en soustrayant les valeurs
+    affichées à deux décimales (« 1,67 − 1,97 = −0,30 ») : différence des
+    arrondis, et non arrondi de la différence, qui peut tomber à 0,01 près."""
+    return round(round(a, 2) - round(b, 2), 2)
 
 
 # ---------------------------------------------------------------------------
@@ -493,23 +510,42 @@ def _style():
     return plt
 
 
+def _fr(v: float, nd: int = 2, signe: bool = False) -> str:
+    """-0.3 -> « −0,30 » : virgule décimale, vrai signe moins ; `signe`
+    ajoute le « + » des valeurs positives."""
+    s = f"{abs(v):.{nd}f}".replace(".", ",")
+    if round(v, nd) < 0:
+        return "−" + s
+    return ("+" + s) if signe and round(v, nd) > 0 else s
+
+
 def graphique_classement(sc: dict, confs: list[Confrontation], fichier: Path):
-    """Le score de chaque institut (gros point, relié au zéro), et l'écart de
-    chacun de ses scrutins (petits cercles) : la dispersion dit combien le
-    classement est fragile, et d'où vient un mauvais score."""
+    """Le score de chaque institut (gros point, relié au zéro : la référence)
+    et l'écart de chacun de ses scrutins (petits cercles) : la dispersion dit
+    combien le classement est fragile, et d'où vient un mauvais score. À
+    droite, la soustraction qui donne le score, posée en colonnes : erreur
+    moyenne de l'institut − référence moyenne des mêmes scrutins = score."""
     plt = _style()
     import matplotlib.ticker as mticker
     from matplotlib.lines import Line2D
 
     ordre = sorted(sc, key=lambda k: sc[k]["score"])
     n = len(ordre)
-    fig = plt.figure(figsize=(12, 6.6))
-    ax = fig.add_axes([0.205, 0.16, 0.655, 0.64])
+    fig = plt.figure(figsize=(12, 6.8))
+    ax = fig.add_axes([0.205, 0.155, 0.48, 0.63])
 
     tous = [e for k in ordre for e in sc[k]["ecarts"]]
     lim = max(1.0, math.ceil(max(abs(e) for e in tous) * 2 + 0.6) / 2)
     ax.set_xlim(-lim, lim)
     ax.set_ylim(-0.6, n - 0.4)
+
+    # colonnes de droite (bord droit, en fraction de la figure) et opérateurs
+    col_err, col_ref, col_ecart = 0.775, 0.88, 0.97
+    ops = [(0.783, "−"), (0.888, "=")]
+
+    def a_droite(x, y, texte, **kw):
+        ax.annotate(texte, (x, y), xycoords=("figure fraction", "data"),
+                    ha=kw.pop("ha", "right"), va="center", **kw)
 
     for i, nom in enumerate(ordre):
         y = n - 1 - i
@@ -523,37 +559,51 @@ def graphique_classement(sc: dict, confs: list[Confrontation], fichier: Path):
         ax.scatter([s["score"]], [y], s=170, color=couleur, edgecolor=SURFACE,
                    linewidths=2, zorder=5)
 
-        # nom à gauche, nombre de scrutins dessous ; score à droite
+        # nom à gauche, nombre de scrutins dessous
         ax.annotate(nom, (-0.03, y), xycoords=("axes fraction", "data"),
                     xytext=(0, 1.5), textcoords="offset points",
                     ha="right", va="bottom", fontsize=13, fontweight="bold", color=INK)
         ax.annotate(f"{s['n']} scrutins", (-0.03, y), xycoords=("axes fraction", "data"),
                     xytext=(0, -2.5), textcoords="offset points",
                     ha="right", va="top", fontsize=9.5, color=MUTED)
-        ax.annotate(_pts(s["score"]), (1.03, y), xycoords=("axes fraction", "data"),
-                    ha="left", va="center", fontsize=13, fontweight="bold", color=INK)
+
+        # erreur − référence = écart (le score)
+        a_droite(col_err, y, _fr(s["erreur"]), fontsize=12, color=INK_SECOND)
+        a_droite(col_ref, y, _fr(s["reference"]), fontsize=12, color=INK_SECOND)
+        a_droite(col_ecart, y, _fr(ecart_affiche(s["erreur"], s["reference"]), signe=True),
+                 fontsize=13, fontweight="bold", color=INK)
+        for x, op in ops:
+            a_droite(x, y, op, ha="left", fontsize=12, color=MUTED)
 
         # les scrutins qui pèsent le plus sur le score sont nommés
-        scrutins_couverts = [c.scrutin for c in confs if nom in c.erreurs]
-        for e, scr in zip(s["ecarts"], scrutins_couverts):
+        for e, scr in zip(s["ecarts"], s["scrutins"]):
             if abs(e) >= 1.0:
                 ax.annotate(f"{ABREGE[scr.titre]} {scr.detail}", (e, y),
                             xytext=(0, 8), textcoords="offset points",
                             ha="center", va="bottom", fontsize=8.5, color=INK_SECOND)
 
+    # en-têtes : le zéro est la référence ; colonnes de droite
     ax.axvline(0, color=INK, lw=1, zorder=2)
-    ax.annotate("moyenne des instituts", (0, 1), xycoords=("data", "axes fraction"),
-                xytext=(0, 20), textcoords="offset points",
-                ha="center", va="bottom", fontsize=9.5, color=INK)
-    ax.annotate("←  se trompe moins", (0, 1), xycoords=("data", "axes fraction"),
+    ax.annotate("référence", (0, 1), xycoords=("data", "axes fraction"),
+                xytext=(0, 21), textcoords="offset points",
+                ha="center", va="bottom", fontsize=10, fontweight="bold", color=INK)
+    ax.annotate("←  moins d'erreur", (0, 1), xycoords=("data", "axes fraction"),
                 xytext=(-10, 5), textcoords="offset points",
                 ha="right", va="bottom", fontsize=9.5, color=INK_SECOND)
-    ax.annotate("se trompe plus  →", (0, 1), xycoords=("data", "axes fraction"),
+    ax.annotate("plus d'erreur  →", (0, 1), xycoords=("data", "axes fraction"),
                 xytext=(10, 5), textcoords="offset points",
                 ha="left", va="bottom", fontsize=9.5, color=INK_SECOND)
-    ax.annotate("score", (1.03, 1), xycoords="axes fraction",
-                xytext=(0, 5), textcoords="offset points",
-                ha="left", va="bottom", fontsize=9.5, color=INK_SECOND)
+    for x, haut, bas in [(col_err, "erreur", "de l'institut"),
+                         (col_ref, "référence", "des mêmes scrutins"),
+                         (col_ecart, "écart", "= le score")]:
+        ax.annotate(haut, (x, 1), xycoords=("figure fraction", "axes fraction"),
+                    xytext=(0, 21), textcoords="offset points",
+                    ha="right", va="bottom", fontsize=10,
+                    fontweight="bold" if haut == "écart" else "normal",
+                    color=INK if haut == "écart" else INK_SECOND)
+        ax.annotate(bas, (x, 1), xycoords=("figure fraction", "axes fraction"),
+                    xytext=(0, 6), textcoords="offset points",
+                    ha="right", va="bottom", fontsize=8.5, color=MUTED)
 
     ax.xaxis.set_major_locator(mticker.MultipleLocator(1))
     ax.xaxis.set_major_formatter(mticker.FuncFormatter(
@@ -564,17 +614,16 @@ def graphique_classement(sc: dict, confs: list[Confrontation], fichier: Path):
         spine.set_visible(False)
     ax.tick_params(length=0, labelsize=10)
 
-    fig.text(0.03, 0.935, "Quel institut se trompe le moins ?", fontsize=17,
+    fig.text(0.03, 0.94, "Quel institut se trompe le moins ?", fontsize=17,
              fontweight="bold", color=INK)
-    fig.text(0.03, 0.892, "Erreur de l'institut moins l'erreur moyenne des instituts sur "
-             f"le même scrutin, en points — scrutins nationaux depuis {SCRUTINS[0].jour.year}",
-             fontsize=11, color=INK_SECOND)
+    fig.text(0.03, 0.898, "Erreur de l'institut moins la référence (l'erreur moyenne des "
+             "instituts sur le même scrutin), en points — scrutins nationaux depuis "
+             f"{SCRUTINS[0].jour.year}", fontsize=11, color=INK_SECOND)
     poignees = [
         Line2D([], [], ls="", marker="o", ms=7, mfc=SURFACE, mec=MUTED, mew=1.2,
-               label="un scrutin"),
+               label="un scrutin : son erreur − la référence du scrutin"),
         Line2D([], [], ls="", marker="o", ms=11, mfc=INK_SECOND, mec=SURFACE, mew=1.5,
-               label="moyenne des scrutins : le score (bleu : mieux que la moyenne, "
-                     "orange : moins bien)"),
+               label="moyenne de ces écarts : le score"),
     ]
     fig.legend(handles=poignees, loc="lower left", bbox_to_anchor=(0.2, 0.025), ncol=2,
                frameon=False, fontsize=9.5, labelcolor=INK_SECOND, handletextpad=0.4,
@@ -656,14 +705,18 @@ def graphique_scrutins(sc: dict, confs: list[Confrontation], fichier: Path):
     for i, nom in enumerate(ordre):
         ax.annotate(nom, (-0.015, -i), xycoords=("axes fraction", "data"), ha="right",
                     va="center", fontsize=12, fontweight="bold", color=INK)
-    ax.annotate("Moyenne", (-0.015, y_moy), xycoords=("axes fraction", "data"),
-                ha="right", va="center", fontsize=12, color=INK_SECOND)
+    ax.annotate("Référence", (-0.015, y_moy), xycoords=("axes fraction", "data"),
+                xytext=(0, 1), textcoords="offset points",
+                ha="right", va="bottom", fontsize=12, fontweight="bold", color=INK_SECOND)
+    ax.annotate("moyenne des instituts", (-0.015, y_moy), xycoords=("axes fraction", "data"),
+                xytext=(0, -2), textcoords="offset points",
+                ha="right", va="top", fontsize=9, color=MUTED)
     ax.plot([-0.5, xs[-1] + 0.5], [y_moy + 0.62] * 2, color=GRID, lw=1, clip_on=False)
 
     # légende de la couleur : petite échelle continue sous le tableau
     leg = fig.add_axes([0.4, 0.06, 0.3, 0.022])
     leg.imshow(np.linspace(0, 1, 256)[None, :], aspect="auto", cmap=cmap)
-    leg.set_xticks([0, 127.5, 255], [f"−{SATURE:g} pt", "moyenne du scrutin",
+    leg.set_xticks([0, 127.5, 255], [f"−{SATURE:g} pt", "référence du scrutin",
                                      f"+{SATURE:g} pt"])
     leg.set_yticks([])
     leg.tick_params(length=0, labelsize=9, colors=INK_SECOND)
@@ -675,9 +728,9 @@ def graphique_scrutins(sc: dict, confs: list[Confrontation], fichier: Path):
              fontsize=9.5, color=INK_SECOND)
 
     fig.text(0.03, 0.935, "Scrutin par scrutin", fontsize=17, fontweight="bold", color=INK)
-    fig.text(0.03, 0.892, "Erreur du dernier sondage de chaque institut, en points "
-             "(moyenne quadratique des écarts sur les candidats au-dessus de "
-             f"{SEUIL_VOIX:g} %)".replace(".", ","), fontsize=11, color=INK_SECOND)
+    fig.text(0.03, 0.892, "Erreur quadratique moyenne (RMSE) du dernier sondage de chaque "
+             "institut, en points ; la couleur la compare à la référence du scrutin",
+             fontsize=11, color=INK_SECOND)
     fig.text(0.97, 0.025, "Wikipédia", fontsize=8, color=MUTED, ha="right")
     fig.savefig(fichier, dpi=150, facecolor=SURFACE)
     plt.close(fig)
@@ -704,7 +757,117 @@ def ecrire_csv(confs: list[Confrontation], fichier: Path):
 
 
 # ---------------------------------------------------------------------------
-# 5. Orchestration
+# 5. Exemple de calcul, écrit dans la page
+# ---------------------------------------------------------------------------
+# Le calcul complet d'un institut sur un scrutin, posé en tableau dans
+# index.html. Ses chiffres dépendent des données et de la méthode : le script
+# les réécrit à chaque exécution entre ces deux marqueurs, pour qu'ils ne
+# deviennent jamais faux en silence (cf. README).
+EXEMPLE = ("Présidentielle 2022 · 1er tour", "Ipsos")   # (scrutin, institut)
+EXEMPLE_DEBUT = "<!-- exemple : écrit par instituts.py, ne pas modifier à la main -->"
+EXEMPLE_FIN = "<!-- /exemple -->"
+MOIS_NOMS = ["", "janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+             "août", "septembre", "octobre", "novembre", "décembre"]
+
+
+def _date_fr(d: date) -> str:
+    return f"{'1er' if d.day == 1 else d.day} {MOIS_NOMS[d.month]} {d.year}"
+
+
+def _et(noms: list[str]) -> str:
+    return noms[0] if len(noms) == 1 else ", ".join(noms[:-1]) + " et " + noms[-1]
+
+
+def html_exemple(confs: list[Confrontation], sc: dict) -> str:
+    nom_scrutin, inst = EXEMPLE
+    c = next(c for c in confs if c.scrutin.nom == nom_scrutin)
+    s = c.sondages[inst]
+    lignes = sorted(zip(c.unites, s["valeurs"]), key=lambda uv: -uv[0].resultat)
+    carres = [(v - u.resultat) ** 2 for u, v in lignes]
+    moy_carres = float(np.mean(carres))
+    err, ref = c.erreurs[inst], c.erreur_moyenne
+    total = sc[inst]
+    de = "d'" if _plat(inst)[0] in "aeiouy" else "de "
+
+    def g(v):      # valeur de sondage telle que publiée : 17,5 ; 3 ; 56,75
+        return f"{v:g}".replace(".", ",")
+
+    def pts(v):    # « 0,73 point », « 2,04 points »
+        return f"{_fr(v)} point{'s' if abs(v) >= 2 else ''}"
+
+    def eq(texte):
+        return f'<span class="eq">{texte}</span>'
+
+    annee, _, tour = c.scrutin.detail.partition(" · ")
+    tour = tour.replace("1er", "1<sup>er</sup>").replace("2d", "2<sup>d</sup>")
+    titre = f"{c.scrutin.titre.lower()} {annee}" + (f", {tour}" if tour else "")
+    exclus = (f" {_et(c.sous_seuil)}, sous {_fr(SEUIL_VOIX, 0)} % des voix, ne comptent pas."
+              if c.sous_seuil else "")
+
+    # les deux plus gros écarts, s'ils font l'essentiel de la somme des carrés
+    top = sorted(range(len(carres)), key=lambda k: -carres[k])[:2]
+    part = sum(carres[k] for k in top) / sum(carres)
+    noms = [re.sub(r"\s*\(.*\)$", "", lignes[k][0].libelle) for k in top]
+    poids = (f" À eux deux, {noms[0]} et {noms[1]} font {round(part * 100)} % de la "
+             "somme des carrés : élever au carré fait peser les grosses erreurs."
+             if len(carres) > 2 and part >= 0.5 else "")
+
+    rangs = [f'<tr><th scope="row">{u.libelle}</th><td>{g(v)}</td>'
+             f"<td>{_fr(u.resultat)}</td><td>{_fr(v - u.resultat, signe=True)}</td>"
+             f"<td>{_fr(e2)}</td></tr>" for (u, v), e2 in zip(lignes, carres)]
+    html = "\n".join([
+        '<div class="calc">',
+        f"  <h3>Exemple : {inst}, {titre}</h3>",
+        f'  <p class="calc-lead">Son dernier sondage s\'achève le {_date_fr(s["fin"])}, '
+        f"{(c.scrutin.jour - s['fin']).days} jours avant le vote. Écart = sondage − "
+        f"résultat, en points : négatif, le candidat était sous-estimé.{exclus}</p>",
+        '  <div class="calc-table">',
+        "    <table>",
+        '      <thead><tr><th scope="col">Candidat</th><th scope="col">Sondage</th>'
+        '<th scope="col">Résultat</th><th scope="col">Écart</th>'
+        '<th scope="col">Écart²</th></tr></thead>',
+        "      <tbody>",
+        *[f"        {r}" for r in rangs],
+        "      </tbody>",
+        f'      <tfoot><tr><th scope="row" colspan="4">Moyenne des {len(carres)} carrés'
+        f"</th><td>{_fr(moy_carres)}</td></tr></tfoot>",
+        "    </table>",
+        "  </div>",
+        '  <ol class="calc-steps">',
+        f"    <li><strong>Erreur.</strong> {eq(f'E = √{_fr(moy_carres)} = {_fr(err)}')} "
+        f"point{'s' if err >= 2 else ''}.{poids}</li>",
+        f"    <li><strong>Référence.</strong> Les {len(c.erreurs)} instituts présents se "
+        f"trompent en moyenne de {pts(ref)} sur ce scrutin. Écart {de}{inst} : "
+        f"{eq(f'{_fr(err)} − {_fr(ref)} = {_fr(ecart_affiche(err, ref), signe=True)}')}.</li>",
+        f"    <li><strong>Score.</strong> Même calcul sur ses {total['n']} scrutins, puis "
+        f"moyenne : erreur {eq(_fr(total['erreur']))}, référence "
+        f"{eq(_fr(total['reference']))}, score "
+        f"{eq(_fr(ecart_affiche(total['erreur'], total['reference']), signe=True))}. "
+        f"C'est la ligne {de}{inst} du premier graphique.</li>",
+        "  </ol>",
+        "</div>",
+    ])
+    # pas de « : » ni de « % » rejeté seul en début de ligne
+    return html.replace(" :", "&nbsp;:").replace(" %", "&nbsp;%")
+
+
+def ecrire_exemple(confs: list[Confrontation], sc: dict, fichier: Path):
+    page = fichier.read_text(encoding="utf-8")
+    debut, fin = page.find(EXEMPLE_DEBUT), page.find(EXEMPLE_FIN)
+    if debut < 0 or fin < debut:
+        print(f"⚠ marqueurs de l'exemple absents de {fichier.name} : page non modifiée",
+              file=sys.stderr)
+        return
+    retrait = page[page.rfind("\n", 0, debut) + 1:debut]     # indentation des marqueurs
+    bloc = "\n".join(retrait + l if l else l for l in html_exemple(confs, sc).split("\n"))
+    neuve = page[:debut + len(EXEMPLE_DEBUT)] + "\n" + bloc + "\n" + retrait + page[fin:]
+    if neuve != page:
+        fichier.write_text(neuve, encoding="utf-8")
+    print(f"✓ {fichier.name} (exemple de calcul)")
+
+
+# ---------------------------------------------------------------------------
+# 6. Orchestration
 # ---------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
@@ -736,6 +899,7 @@ def main():
     graphique_classement(sc, confs, ICI / "instituts_classement.png")
     graphique_scrutins(sc, confs, ICI / "instituts_scrutins.png")
     ecrire_csv(confs, ICI / "derniers_sondages.csv")
+    ecrire_exemple(confs, sc, ICI / "index.html")
 
 
 if __name__ == "__main__":
