@@ -291,10 +291,61 @@ a.row:hover .go {
   margin: 0;
 }
 
+/* Méthode en quelques étapes numérotées, côte à côte sur grand écran
+   (Instituts/) : les numéros reprennent ceux de la liste d'accueil. */
+.method h2 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.steps {
+  list-style: none;
+  margin: 0 0 clamp(10px, 1.6vw, 22px);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 40px);
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+}
+
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-feature-settings: "tnum" 1;
+  color: var(--muted);
+}
+
+.steps h3 {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.steps p {
+  max-width: 56ch;
+  margin: 0;
+}
+
 /* --- Écrans étroits ----------------------------------------------------- */
 
 @media (max-width: 820px) {
-  .polls-grid {
+  .polls-grid,
+  .steps {
     grid-template-columns: 1fr;
   }
 }

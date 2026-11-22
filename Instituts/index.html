@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les instituts face aux urnes — Jules</title>
+  <meta name="description" content="Le dernier sondage de sept instituts confronté au résultat de chaque scrutin national depuis 2017 : qui se trompe le moins ?">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="shell shell--wide">
+      <a class="mark" href="../">Julesfress</a>
+      <nav>
+        <a href="../">← Retour</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell shell--wide">
+    <div class="doc-head">
+      <h1>Les instituts face aux urnes</h1>
+      <p class="tagline">Ifop, Ipsos, OpinionWay, Harris Interactive, Elabe, Odoxa et Cluster17 : à chaque scrutin national depuis 2017, leur dernier sondage confronté au résultat.</p>
+    </div>
+
+    <div class="stack">
+      <section class="method">
+        <h2>La méthode</h2>
+        <ol class="steps">
+          <li>
+            <h3>Le sondage retenu</h3>
+            <p>Le dernier publié par chaque institut, s'il a été réalisé dans les deux
+            semaines précédant le vote. Pas de moyenne avec les précédents : quand l'opinion
+            bouge en fin de campagne, elle pénaliserait ceux qui publient souvent.</p>
+          </li>
+          <li>
+            <h3>L'erreur</h3>
+            <p>L'écart entre sondage et résultat pour chaque candidat ou liste au-dessus de
+            1 %, puis leur moyenne quadratique : rater un candidat de 4 points pèse plus que
+            rater quatre candidats d'un point. Sur un même scrutin, tous les instituts sont
+            jugés sur les mêmes candidats.</p>
+          </li>
+          <li>
+            <h3>Le score</h3>
+            <p>Certains scrutins sont plus durs à prévoir, et aucun institut ne les a tous
+            couverts. Sur chaque scrutin, l'erreur de l'institut est donc comparée à
+            l'erreur moyenne des instituts présents ; le score est la moyenne de ces écarts.</p>
+          </li>
+        </ol>
+      </section>
+
+      <a class="plate" href="instituts_classement.png" target="_blank" rel="noopener">
+        <img src="instituts_classement.png" alt="Classement des sept instituts selon leur score : pour chacun, un petit cercle par scrutin donne l'écart entre son erreur et l'erreur moyenne des instituts, et un gros point, bleu ou orange, leur moyenne.">
+      </a>
+
+      <p class="note">Chaque petit cercle est un scrutin, le gros point leur moyenne. Plus les
+      cercles sont dispersés, moins le score est solide : un seul scrutin manqué peut suffire
+      à faire passer un institut d'un côté à l'autre de la moyenne.</p>
+
+      <a class="plate" href="instituts_scrutins.png" target="_blank" rel="noopener">
+        <img src="instituts_scrutins.png" alt="Tableau de l'erreur, en points, du dernier sondage de chaque institut à chaque scrutin national, colorée en bleu quand elle est inférieure à la moyenne des instituts sur ce scrutin et en orange quand elle est supérieure. La dernière ligne donne l'erreur moyenne de chaque scrutin." loading="lazy">
+      </a>
+
+      <p class="note">Dans chaque case, l'erreur en points ; sa couleur la compare à celle des
+      autres instituts sur le même scrutin. La ligne du bas, l'erreur moyenne, est celle que
+      tous partagent : elle pèse souvent plus lourd que ce qui les sépare.</p>
+
+      <p class="note">Source : les listes de sondages de Wikipédia et leur ligne « Résultats »
+      (résultats officiels). Le détail des sondages retenus, candidat par candidat :
+      <a href="https://github.com/Julesfress/Julesfress.github.io/blob/main/Instituts/derniers_sondages.csv" target="_blank" rel="noopener">derniers_sondages.csv</a>.
+      Le code : <a href="https://github.com/Julesfress/Julesfress.github.io/blob/main/Instituts/instituts.py" target="_blank" rel="noopener">instituts.py</a>.</p>
+    </div>
+  </main>
+</body>
+</html>
